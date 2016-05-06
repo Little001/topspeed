@@ -34,14 +34,14 @@ body{
     text-align: center;
 }
 
-.nadbuttons{
+.buttons{
     float:right;
     position:relative;
     left:-50%;
     text-align:left;
 }
 
-.nadbuttons ul{
+.buttons ul{
     list-style:none;
     position:relative;
     left:50%;

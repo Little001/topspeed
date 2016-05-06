@@ -136,7 +136,7 @@
 
 
 .table-car-info{
-    margin-left: -82px;
+    padding-right: 90px;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
@@ -144,14 +144,14 @@
 }
 
 
-.car-info:hover .table-car-info{
-    margin-left: 0px;
+.item:hover .table-car-info{
+    padding-right: 0px;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-.car-info:hover .more-car-info{
+.item:hover .more-car-info{
     opacity: 0.9;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
