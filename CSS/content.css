@@ -1,24 +1,64 @@
-.content{
-    min-height: 900px;
+.content-home{
     max-width: 1024px;   
     margin: 0 auto;  
+    min-height: 900px;
 }
 
-
-.content-background{
-    background: none;
+.background-home{
+    background-image: url('../Images/mustang.jpg');
+    background-repeat: no-repeat;
+    background-position: center; 
     width: 100%;
 }
 
-.content > ul {
+.content-services{
+    max-width: 1024px;   
+    margin: 0 auto;  
+    min-height: 900px;
+}
+
+.background-services{
+    background: red;
+    width: 100%;
+}
+
+.content-cars{
+    max-width: 1024px;   
+    margin: 0 auto;  
+    min-height: 900px;
+    padding-top: 140px;
+}
+
+.background-cars{
+    background-image: url('../Images/desert.jpg');
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; 
+}
+
+.content-cars > ul{
+   list-style-type: none; 
+}
+.content-cars > h3{
+    margin-top: 0px;
+}
+
+.content-home > ul {
     list-style-type: none;
     float: left;
     padding: 0;    
 }
 
-.content h3{
+.content-home h3{
     color: white;
     font-size: 30px;
+}
+
+.content-services h3{
+    color: white;
+    font-size: 30px;
+    margin-top: 0;
 }
 
 
@@ -58,8 +98,8 @@
     color: white;
     text-align: center;
     margin: auto;
-    position: absolute;
-    top: 300px; left: 0; bottom: 0; right: 0;
+    position: relative;
+    top: 180px; left: 0; bottom: 0; right: 0;
 }
 
 .service ul{
@@ -162,6 +202,15 @@
 
 @media (max-width: 991px) {
     .item img{
-    right: 35px;
+        right: 35px;
+    }
+    .content-cars{
+        min-height: 1200px;
+    }
+}
+
+@media (max-width: 767px) {
+    .content-cars{
+        min-height: 1600px;
     }
 }
