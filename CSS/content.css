@@ -1,0 +1,167 @@
+.content{
+    min-height: 900px;
+    max-width: 1024px;   
+    margin: 0 auto;  
+}
+
+
+.content-background{
+    background: none;
+    width: 100%;
+}
+
+.content > ul {
+    list-style-type: none;
+    float: left;
+    padding: 0;    
+}
+
+.content h3{
+    color: white;
+    font-size: 30px;
+}
+
+
+.item{
+    border-radius: 3px;
+    background: white;
+    min-width: 300px;
+    height: 150px;
+    margin: 10px; 
+    list-style-type: none;
+    padding: 0;
+    padding-left: 4px;
+}
+
+
+.item li{
+    margin-bottom: 8px;
+}
+
+.item > li:nth-child(1){
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+
+
+.item img{
+    width: 140px;
+    position: absolute;
+    right: 17px;
+    top: 38px;
+}
+
+.service{
+    color: white;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top: 300px; left: 0; bottom: 0; right: 0;
+}
+
+.service ul{
+    margin: 0 auto;
+    padding: 0;
+    font-size: 25px;
+    list-style-type: none;
+}
+
+
+.more-car-info{
+    height: 150px;
+    position: relative;
+    background: #B09C5D;
+    color: white;
+    font-size: 22px;
+    opacity: 0;
+    border-radius: 3px;
+    top: -123px;
+    margin-right: -4px;
+    padding-bottom: 27px;
+    left: -4px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+.more-car-info ul{
+    list-style-type: none;
+    padding: 0;
+    display: table;
+    margin: 0 auto;
+    font-size: 23px;
+}
+.more-car-info ul li{
+    display: table-row;
+    text-decoration: none;
+}
+
+.more-car-info ul li span{
+    display: table-cell;
+    padding-left: 25px;
+}
+
+.more-car-info > .table-car-info > .borow{
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    font-size: 28px;
+    background: none;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 200px;
+    margin-top: 5px;
+    color: white;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.more-car-info > .table-car-info > .borow:hover{
+    background: #B09C5D;
+    color: black;
+    border: 2px solid black;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+
+.table-car-info{
+    margin-left: -82px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+
+.car-info:hover .table-car-info{
+    margin-left: 0px;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+.car-info:hover .more-car-info{
+    opacity: 0.9;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+}
+
+
+@media (max-width: 991px) {
+    .item img{
+    right: 35px;
+    }
+}
