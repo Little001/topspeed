@@ -11,15 +11,14 @@
     width: 100%;
 }
 
-.content-services{
-    max-width: 1024px;   
-    margin: 0 auto;  
-    min-height: 900px;
-}
-
+/*Services*/
 .background-services{
-    background: red;
+    background: yellow;
     width: 100%;
+}
+.content-services{
+    margin: 0 auto;
+    max-width: 1600px;
 }
 
 .content-cars{

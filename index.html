@@ -16,8 +16,10 @@
         <!-- CSS -->
         <link rel="stylesheet" href="CSS/header.css"/>
         <link rel="stylesheet" href="CSS/content.css"/>
+        <link rel="stylesheet" href="CSS/slider.css"/>
         <!-- JS -->
         <script src="JS/scripts.js"></script>
+        <script src="JS/slider.js"></script>
         
     </head>
     <body>
@@ -61,197 +63,191 @@
                 </div>
             </div>
        	</header>
-            <div class="background-home">
-                <div class="content-home">
-                </div>
+        <div class="background-home">
+            <div class="content-home">
             </div>
-            <div class="background-services">
-                <div class="content-services">
-                    <div class="service">
-                        <h3>Naše služby</h3>
-                        <ul>
-                            <li>Kecy o autech...</li>
-                            <li>Kecy o půjčování...</li>
-                            <li>Kecy o zážitkových jízdách</li>
-                            <li>Kecy o DVD a půjčování kamer...</li>
-                            <li>Třeba nějakej ten obrázek</li>
-                            <li>Kecy, kecy, kecy...</li>
-                            <li>Kecy, obrázek, kecy...</li>
-                            <li>Kecy, kecy a zase kecy...</li>
-                        </ul>
+        </div>
+        <div class="background-services">
+            <div class="content-services">
+                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="200">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+                                <h2>ŽÁŽITKOVÉ JÍZDY</h2>
+                                <br>
+                                <p>Zažijte adrenalinovou jízdu ve sportovních
+                                    autech Vašich snů. Pod dohledem
+                                    instruktora zakuste hrubou sílu a zrychlení
+                                    našeho Mustangu GT. Vybrat si můžete
+                                    půlhodinovou nebo hodinovou jízdu v Brně,
+                                    Olomouci a Ostravě. Není se čeho bát,
+
+                                    náš instruktor vás před jízdou s autem
+                                    náležitě seznámí, styl jízdy je pak pouze
+
+                                    na Vás. Celou jízdu si také můžete nechat
+                                    zaznamenat na DVD.
+                                </p>
+                                <p>
+                                    Nyní se slevou 70%!
+                                </p>
+                                <p class="contract">
+                                Vzor ke stažení: Smlouva o pronájmu 
+                                </p>
+                            </div>
+                            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                                <h2>JAK NA TO</h2>
+                                <ol>
+                                    <li>
+                                        Zakupte slevový voucher na Slevomatu. Odkaz: www.slevomat.cz/xyz
+                                    </li>
+                                    <li>
+                                        Na mail obdržíte voucher, který si vytiskněte.
+                                    </li>
+                                    <li>
+                                        Dále od nás obdržíte mail s instrukcemi a smlouvou o pronájmu. Smlouvu si prosím přečtěte,
+                                        vytiskněte a podepište. Pokud nemáte možnost smlouvu vytisknout, několik smluv vozíme
+                                        vždy v autě.
+                                    </li>
+                                    <li>
+                                        Zarezervujte si telefonicky nebo on-line na našich webových stránkách termín jízdy.
+                                        On-line rezervaci provedete na kartě Rezervace. Do kolonky „Vložte kód“, vložte kód vašeho
+                                        voucheru, poté budete vpuštěni do rezervačního systému, kde si vyberte termín a potvrďte
+                                        jej. Na mail Vám pošleme potvrzení o rezervaci. Vozidlo můžete rezervovat pouze v termínech
+                                        určených pro Vaše město.
+                                    </li>
+                                    <li>
+                                        Dostavte se ve zvolený termín na nástupní stanoviště, odevzdejte instruktorovi voucher a 
+                                        podepsanou smlouvu o pronájmu. Instruktor se Vás zeptá, zda máte zájem o záznam jízdy,
+                                        pokud ano, vybere od vás poplatek za tento záznam.
+                                    </li>
+                                    <li>
+                                        Instruktor Vás seznámí s autem a můžete vyrazit.
+                                    </li>
+                                    <li>
+                                        Užijte si jízdu na plný pecky!
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class='col-xs-0 col-sm-0 col-md-4 col-lg-4'></div>
+                            <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4'>
+                                <h2>ZÁZNAMY ZÁŽITKOVÝCH JÍZD</h2>
+                                <p>Nechte si svou zážitkovou jízdu zaznamenat pomocí GoPro kamer umístěných uvnitř
+                                    a na karoserii vozu a pochlubte se svým
+                                    přátelům nebo si kdykoli zavzpomínejte
+                                    na tento skvělý zážitek! Využít můžete také
+                                    čelenku s kamerou a oživit si záznam jízdy
+                                    fascinujícím POV záběry. Dle Vašeho výběru
+                                    Vám zpracované video zašleme poštou na
+                                    DVD nebo jej nahrajeme na Uložto. Odkaz a
+                                    heslo ke stažení Vám zašleme mailem.
+                                </p>
+                                <p>
+                                    Cena záznamu je 200 Kč.
+                                </p>
+                            </div>
+                            <div class='col-xs-0 col-sm-0 col-md-4 col-lg-4'></div>
+                        </div>
+                        <div class="item">
+                            <div class='col-xs-4 col-sm-4 col-md-4 col-lg-4'>
+                                <h2>DLOUHODOBÝ PRONÁJEM</h2>
+                                <br>
+                                <p>Náš Mustang GT si můžete půjčit
+                                    i dlouhodobě na den, víkend nebo klidně celý
+                                    týden. Vozidlo Vám přistavíme zdarma
+                                    kdekoli v Brně, Olomouci a Ostravě.
+                                </p>
+                                <br>
+                                Podmínky:
+                                <ul>
+                                    <li>
+                                        Minimální věk řidiče 20 let
+                                    </li>
+                                    <li>
+                                        Nájemce je povinen složit vratnou kauci
+                                        ve formě směnky vázané na smlouvu
+                                        o pronájmu. Výše kauce je uvedena na
+                                        kartě vozu.
+                                    </li>
+                                    <li>¨
+                                        Auto předáváme nájemci s plnou nádrží,
+                                        s plnou nádrží jej nájemce vrací.
+                                    </li>
+                                    <li>S vozidlem je zakázána jízda mimo
+                                        zpevněnou vozovku, na závodních
+    	                                či testovacích okruzích a účast
+                                        na motoristických závodech či soutěžích.
+                                    </li>
+                                </ul>
+                                <p class="contract">
+                                Vzor ke stažení: Smlouva o pronájmu, Směnka, Předávací protokol
+                                </p>
+                            </div>
+                            <div class='col-xs-8 col-sm-8 col-md-8 col-lg-8'>
+                                <h2>JAK NA TO</h2>
+                                <ol>
+                                    <li>
+                                        Na kartě Mustang GT zvolte délku pronájmu, místo přistavení vozu
+                                        a proveďte nákup. Pokud si chcete hned rezervovat termín pronájmu, zaškrtněte
+                                        políčko Chci rezervovat termín ihned. Budete automaticky přesměrování
+                                        do rezervačního systému.
+                                    </li>
+                                    <li>
+                                        Na mail obdržíte potvrzení o objednávce, smlouvu o pronájmu a kód pro pozdější
+                                        rezervaci v případě, že nemůžete udělat rezervaci hned nebo chcete pronájem
+                                        darovat.
+                                    </li>
+                                    <li>
+                                        V rezervačním systému si vyberte termín a potvrďte jej. Na mail vám pošleme
+                                        potvrzení o rezervaci. Pozor! Pokud se vozidlo nenachází ve Vašem městě (neprobíhá
+                                        zde turnus), je přistavení zpoplatněno. Jednotlivé turnusy jsou vyznačeny
+                                        v rezervačním systému. Poplatek za přistavení vozidla činí 10 Kč/km.
+                                    </li>
+                                    <li>
+                                        Předání vozu - před předáním vozu vyplníme předávací protokol, do kterého
+                                        se zapisuje stav vozidla, podepisujete smlouvu o pronájmu a směnku. Auto Vám
+                                        předáváme s plnou nádrží.
+                                    </li>
+                                    <li>
+                                        Vrácení vozu – auto nám vracíte s plnou nádrží, vyplňujeme předávací protokol,
+                                        pokud je vozidlo v pořádku, vracíme Vám směnku.
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class='col-xs-0 col-sm-0 col-md-4 col-lg-4'></div>
+                            <div class='col-xs-12 col-sm-12 col-md-4 col-lg-4'>
+                                <h2>SVATBY</h2>
+                                <p>Přijeďte na svou svatbu ve velkém stylu!
+                                    Náš mustang Vám půjčíme i s profesionálním
+                                    řidičem na celý svatební den za výhodnou
+                                    cenu. Samozřejmostí je i vyzdobení vozu
+                                    svatební dekorací či kyticí. Pro nezávaznou
+                                    kalkulaci nás neváhejte kontaktovat.
+                                </p>
+                            </div>
+                            <div class='col-xs-0 col-sm-0 col-md-4 col-lg-4'></div>
+                        </div>
+                    </div>
+                    <!-- Left and right controls -->
+                    <div class="slide-button left" href="#myCarousel" data-slide="prev">
+                        <span class="glyphicon glyphicon-menu-left"></span>
+                        <span class="sr-only">Previous</span>
+                    </div>
+                    <div class="slide-button right" href="#myCarousel" data-slide="next">
+                        <span class="sr-only">Next</span>
+                        <span class="glyphicon glyphicon-menu-right"></span>
                     </div>
                 </div>
             </div>
-            <div class="background-cars">
-            <div class="content-cars">
-                <h3>SALOON</h3>
-                <div class="hr"></div>
-                <ul class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-                <br>
-                <h3>SPORTOVNÍ</h3>
-                <div class="hr"></div>
-                <ul class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-               <br>
-               <h3>SUPERSPORT</h3>
-               <div class="hr"></div>
-                <ul class='col-xs-12 col-sm-12 col-md-12 col-lg-12'>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                    <li class='col-xs-12 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0 car-info'>
-                        <ul class='item'>
-                            <li class="car-name">BMW 535d</li>
-                            <li>TopSpeed : 250km/h</li>
-                            <li>Výkon : 210kw</li>
-                            <li>z 0 na 100 : 6,8s</li>
-                            <img src="Images/car.png">
-                            <div class="more-car-info">
-                                <div class="table-car-info">
-                                    <ul>
-                                        <li>Hodina <span>690 Kč</span></li>
-                                        <li>Den <span>2490 Kč</span></li>
-                                        <li>Týden <span>12 900 Kč</span></li>
-                                    </ul>
-                                    <span class="borow">PŮJČIT SI</span>
-                                </div>
-                            </div>
-                        </ul>
-                    </li>
-                </ul> 
-                </div>
-            </div>
+        </div>
+        <div class="background-cars">
+            <div class="content-cars"></div>
+        </div>
         <footer>
 	    </footer>
     </body>

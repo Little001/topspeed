@@ -16,8 +16,6 @@ $( document ).ready(function() {
             scrollTop: $(".content-home").offset().top
         }, 1000);
     });
-    
-    
 });
 
 
