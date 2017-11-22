@@ -1,40 +1,61 @@
-.content-home{
+/*Home*/
+.content-home {
     max-width: 1024px;   
     margin: 0 auto;  
     min-height: 900px;
 }
 
-.background-home{
+.background-home {
     background-image: url('../Images/mustang.png');
     background-repeat: no-repeat;
     background-position: center; 
     width: 100%;
 }
 
+.background-home .news {
+    border: 2px solid white;
+    border-radius: 6px;
+    width: 420px;
+    line-height: 90px;
+    position: absolute; 
+    top: 400px;
+    left: 0; 
+    right: 0; 
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+}
+
+.background-home .news span{ 
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
 /*Services*/
-.background-services{
+.background-services {
     background-image: url('../Images/mustang_back.jpg');
     background-repeat: no-repeat;
-    background-position: right 0% bottom 60%;
+    background-position: right 0% bottom 72%;
     background-size: cover;
     background-color: #ccc9c9;
     background-blend-mode: screen;
     width: 100%;
 }
-.content-services{
+.content-services {
     width: 100%;
     margin: 0 auto;
     max-width: 1600px;
 }
 
-.content-cars{
+.content-cars {
     max-width: 1024px;   
     margin: 0 auto;  
     min-height: 900px;
     padding-top: 140px;
 }
 
-.background-cars{
+.background-cars {
     background-image: url('../Images/desert.jpg');
     width: 100%;
     background-size: cover;
@@ -42,10 +63,10 @@
     background-position: center; 
 }
 
-.content-cars > ul{
+.content-cars > ul {
    list-style-type: none; 
 }
-.content-cars > h3{
+.content-cars > h3 {
     margin-top: 0px;
 }
 
@@ -55,19 +76,19 @@
     padding: 0;    
 }
 
-.content-home h3{
+.content-home h3 {
     color: white;
     font-size: 30px;
 }
 
-.content-services h3{
+.content-services h3 {
     color: white;
     font-size: 30px;
     margin-top: 0;
 }
 
 
-.item{
+.item {
     border-radius: 3px;
     background: white;
     min-width: 300px;
@@ -79,11 +100,11 @@
 }
 
 
-.item li{
+.item li {
     margin-bottom: 8px;
 }
 
-.item > li:nth-child(1){
+.item > li:nth-child(1) {
     text-decoration: underline;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -92,14 +113,14 @@
 
 
 
-.item img{
+.item img {
     width: 140px;
     position: absolute;
     right: 17px;
     top: 38px;
 }
 
-.service{
+.service {
     color: white;
     text-align: center;
     margin: auto;
@@ -107,7 +128,7 @@
     top: 180px; left: 0; bottom: 0; right: 0;
 }
 
-.service ul{
+.service ul {
     margin: 0 auto;
     padding: 0;
     font-size: 25px;
@@ -115,7 +136,7 @@
 }
 
 
-.more-car-info{
+.more-car-info {
     height: 150px;
     position: relative;
     background: #B09C5D;
@@ -133,24 +154,24 @@
     transition: all 0.4s ease-in-out;
 }
 
-.more-car-info ul{
+.more-car-info ul {
     list-style-type: none;
     padding: 0;
     display: table;
     margin: 0 auto;
     font-size: 23px;
 }
-.more-car-info ul li{
+.more-car-info ul li {
     display: table-row;
     text-decoration: none;
 }
 
-.more-car-info ul li span{
+.more-car-info ul li span {
     display: table-cell;
     padding-left: 25px;
 }
 
-.more-car-info > .table-car-info > .borow{
+.more-car-info > .table-car-info > .borow {
     display: block;
     text-align: center;
     cursor: pointer;
@@ -168,7 +189,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.more-car-info > .table-car-info > .borow:hover{
+.more-car-info > .table-car-info > .borow:hover {
     background: #B09C5D;
     color: black;
     border: 2px solid black;
@@ -180,7 +201,7 @@
 
 
 
-.table-car-info{
+.table-car-info {
     padding-right: 90px;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
@@ -189,14 +210,14 @@
 }
 
 
-.item:hover .table-car-info{
+.item:hover .table-car-info {
     padding-right: 0px;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
 }
-.item:hover .more-car-info{
+.item:hover .more-car-info {
     opacity: 0.9;
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
@@ -204,13 +225,17 @@
     transition: all 0.4s ease-in-out;
 }
 
-
 @media (max-width: 991px) {
     .item img{
         right: 35px;
     }
     .content-cars{
         min-height: 1200px;
+    }
+}
+@media (max-width: 991px) {
+    .background-services {
+        background-position: center;
     }
 }
 
