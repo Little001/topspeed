@@ -5,7 +5,7 @@
 }
 
 .background-home{
-    background-image: url('../Images/mustang.jpg');
+    background-image: url('../Images/mustang.png');
     background-repeat: no-repeat;
     background-position: center; 
     width: 100%;
@@ -13,10 +13,16 @@
 
 /*Services*/
 .background-services{
-    background: yellow;
+    background-image: url('../Images/mustang_back.jpg');
+    background-repeat: no-repeat;
+    background-position: right 0% bottom 60%;
+    background-size: cover;
+    background-color: #ccc9c9;
+    background-blend-mode: screen;
     width: 100%;
 }
 .content-services{
+    width: 100%;
     margin: 0 auto;
     max-width: 1600px;
 }
