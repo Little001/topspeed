@@ -1,17 +1,15 @@
 /*Home*/
-.content-home {
-    max-width: 1024px;   
-    margin: 0 auto;  
-    min-height: 900px;
-}
-
 .background-home {
     background-image: url('../Images/mustang.png');
     background-repeat: no-repeat;
     background-position: center; 
     width: 100%;
 }
-
+.content-home {
+    max-width: 1024px;   
+    margin: 0 auto;  
+    min-height: 900px;
+}
 .background-home .news {
     border: 2px solid white;
     border-radius: 6px;
@@ -25,8 +23,7 @@
     margin-right: auto; 
     text-align: center;
 }
-
-.background-home .news span{ 
+.background-home .news span { 
     font-size: 20px;
     color: white;
     font-weight: bold;
@@ -48,191 +45,93 @@
     max-width: 1600px;
 }
 
-.content-cars {
-    max-width: 1024px;   
-    margin: 0 auto;  
-    min-height: 900px;
-    padding-top: 140px;
-}
-
-.background-cars {
-    background-image: url('../Images/desert.jpg');
+/*MUSTANG GT*/
+.background-mustang {
+    background-color: #00B0F0;
     width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center; 
+    position: relative;
+    overflow: hidden;
 }
-
-.content-cars > ul {
-   list-style-type: none; 
+.content-mustang {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1600px;
 }
-.content-cars > h3 {
-    margin-top: 0px;
+.mustang-lines {
+    width: 320px;
+    height: 100%;
+    position: absolute; 
+    left: 0; 
+    right: 0; 
+    margin-left: auto;
+    margin-right: auto; 
 }
-
-.content-home > ul {
-    list-style-type: none;
-    float: left;
-    padding: 0;    
-}
-
-.content-home h3 {
-    color: white;
-    font-size: 30px;
-}
-
-.content-services h3 {
-    color: white;
-    font-size: 30px;
-    margin-top: 0;
-}
-
-
-.item {
-    border-radius: 3px;
-    background: white;
-    min-width: 300px;
-    height: 150px;
-    margin: 10px; 
-    list-style-type: none;
-    padding: 0;
-    padding-left: 4px;
-}
-
-
-.item li {
-    margin-bottom: 8px;
-}
-
-.item > li:nth-child(1) {
-    text-decoration: underline;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    font-size: 17px;
-}
-
-
-
-.item img {
-    width: 140px;
+.mustang-lines .mustang-line {
     position: absolute;
-    right: 17px;
-    top: 38px;
+    width: 150px;
+    height: 100%;
+    background-color: black;
 }
-
-.service {
-    color: white;
+.mustang-lines .mustang-line:nth-child(1) {
+    left: 0;
+}
+.mustang-lines .mustang-line:nth-child(2) {
+    right: 0;
+}
+.content-mustang .mustang-item {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 35px;
     text-align: center;
-    margin: auto;
+}
+.content-mustang .mustang-item.text {
     position: relative;
-    top: 180px; left: 0; bottom: 0; right: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    background-color:white;
+}
+.content-mustang .mustang-item.text .centered {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.content-mustang .mustang-item.mustang-back-light {
+    background-image: url('../Images/mustang_break_light.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content-mustang .mustang-item.mustang-speedometer {
+    background-image: url('../Images/mustang_speedemeter.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.content-mustang .mustang-item.mustang-youtube iframe{
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 
-.service ul {
-    margin: 0 auto;
-    padding: 0;
-    font-size: 25px;
-    list-style-type: none;
-}
-
-
-.more-car-info {
-    height: 150px;
+/*ORDER*/
+.background-order {
+    background-color: #00B0F0;
+    width: 100%;
     position: relative;
-    background: #B09C5D;
-    color: white;
-    font-size: 22px;
-    opacity: 0;
-    border-radius: 3px;
-    top: -123px;
-    margin-right: -4px;
-    padding-bottom: 27px;
-    left: -4px;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+    overflow: hidden;
 }
-
-.more-car-info ul {
-    list-style-type: none;
-    padding: 0;
-    display: table;
+.content-order {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
     margin: 0 auto;
-    font-size: 23px;
-}
-.more-car-info ul li {
-    display: table-row;
-    text-decoration: none;
+    max-width: 1600px;
 }
 
-.more-car-info ul li span {
-    display: table-cell;
-    padding-left: 25px;
-}
-
-.more-car-info > .table-car-info > .borow {
-    display: block;
-    text-align: center;
-    cursor: pointer;
-    font-size: 28px;
-    background: none;
-    border: 2px solid white;
-    border-radius: 5px;
-    margin: 0 auto;
-    width: 200px;
-    margin-top: 5px;
-    color: white;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-.more-car-info > .table-car-info > .borow:hover {
-    background: #B09C5D;
-    color: black;
-    border: 2px solid black;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-}
-
-
-
-.table-car-info {
-    padding-right: 90px;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-}
-
-
-.item:hover .table-car-info {
-    padding-right: 0px;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-}
-.item:hover .more-car-info {
-    opacity: 0.9;
-    -webkit-transition: all 0.4s ease-in-out;
-    -moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-}
-
-@media (max-width: 991px) {
-    .item img{
-        right: 35px;
-    }
-    .content-cars{
-        min-height: 1200px;
-    }
-}
 @media (max-width: 991px) {
     .background-services {
         background-position: center;

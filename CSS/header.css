@@ -79,6 +79,12 @@ body {
   height: 3px;
   background-color: #C6A759;
 }
+.no-padding {
+    padding: 0;
+}
+.all-bold {
+    font-weight: bold;
+}
 /*text*/
 .big {
     font-size: 22px;

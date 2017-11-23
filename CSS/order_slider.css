@@ -1,0 +1,187 @@
+#order-Carousel {
+    padding-left: 70px;
+    padding-right: 70px;
+    background: none;
+}
+#order-Carousel .item {
+    color: black;
+    left: 2%;
+}
+#order-Carousel .item .item-content {
+    position: relative;
+    left: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow: hidden;
+    background: white;
+    height: 470px;
+    width: 90%;
+    -webkit-transform: rotate(0deg) skew(-10deg, 0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg) skew(-10deg, 0deg);  /* IE 9 */
+    transform: rotate(0deg) skew(-10deg, 0deg);  /* Firefox 16+, IE 10+, Opera */
+}
+
+#order-Carousel .item .item-content .slide-button {
+    height: 100%;
+}
+
+#order-Carousel .item .item-content .slide-button span {
+    top: 50%;
+    left: 60%;
+    -webkit-transform: rotate(0deg) skew(10deg, 0deg) translate(-50%, -50%); /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg) skew(10deg, 0deg) translate(-50%, -50%);  /* IE 9 */
+    transform: rotate(0deg) skew(10deg, 0deg) translate(-50%, -50%);  /* Firefox 16+, IE 10+, Opera */
+    position: absolute;
+}
+
+#order-Carousel .slide-button  {
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background: #7E7F7F;
+    opacity: 0.7;
+    width: 70px;
+    text-align: center;
+    position: absolute;
+}
+
+#order-Carousel .slide-button:hover span {
+    color: black;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+}
+
+#order-Carousel .slide-button span {
+    font-size: 30px;
+    color: white;
+    line-height: 70px;
+    top: 0;
+}
+
+#order-Carousel .item .item-content .content {
+    width: 100%;
+    overflow: hidden;
+    -webkit-transform: rotate(0deg) skew(10deg, 0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg) skew(10deg, 0deg);  /* IE 9 */
+    transform: rotate(0deg) skew(10deg, 0deg);  /* Firefox 16+, IE 10+, Opera */
+}
+
+#order-Carousel .item .item-content .order-image {
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+}
+
+#order-Carousel .item .item-content .order-image .image {
+    background-image: url('../Images/mustang_order.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 130%;
+    position: relative;
+    left: -8%;
+    height: 300px;
+    -webkit-transform: rotate(0deg) skew(10deg, 0deg); /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: rotate(0deg) skew(10deg, 0deg);  /* IE 9 */
+    transform: rotate(0deg) skew(10deg, 0deg);  /* Firefox 16+, IE 10+, Opera */
+}
+
+#order-Carousel .item .item-content .content .main-text {
+    text-align: center;
+    padding-bottom: 10px;
+    
+}
+#order-Carousel .item .item-content .content .slevomat {
+    line-height: 30px;
+    padding-bottom: 15px;
+}
+
+#order-Carousel .item .item-content .content .slevomat .slevomat-button-wrapper{
+    position: relative;
+    left: 0;
+}
+
+#order-Carousel .item .item-content .content .order-overview {
+    padding-top: 20px;
+}
+
+#order-Carousel .item .item-content .content .slevomat .slevomat-button{
+    background: #00B0F0;
+    color: white;
+    border-bottom: 2px solid black;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 30px;
+    width: 110px;
+    cursor: pointer;
+}
+
+#order-Carousel .item .item-content .content .form input {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100%;
+}
+#order-Carousel .item .item-content .content .form select {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100%;    
+}
+#order-Carousel .item .item-content .content .form .form-item {
+    margin-top: 5px;
+}
+
+#order-Carousel .order-button{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 40px;
+    width: 100%;
+    border-radius: 3px;
+    color: white;
+    background: #856F32;
+}
+
+@media (max-width: 991px) {
+    #order-Carousel .item {
+        left: 4%;
+    }
+    #order-Carousel .item .item-content {
+        width: 84%;
+        height: 560px;
+    }
+    #order-Carousel .item .item-content .content .slevomat .slevomat-button{
+        width: 80px;
+    }
+}
+@media (max-width: 767px) {
+    #order-Carousel {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #order-Carousel .item {
+        left: 0;
+    }
+    #order-Carousel .item .item-content {
+        width: 100%;
+        height: 580px;
+        left: 0;
+        transform: none;
+    }
+    #order-Carousel .item .item-content .content {
+        transform: none;
+    }
+    #order-Carousel .item .item-content .content .slevomat .slevomat-button{
+        margin: 0 auto;
+        width: 110px;
+    }
+    #order-Carousel .item .item-content .content .slevomat .slevomat-text{
+        text-align: center;
+    }
+    #order-Carousel .item .item-content .slide-button span.glyphicon-menu-left {
+        transform: none;
+        position: relative;
+        left: 0;
+    }
+}

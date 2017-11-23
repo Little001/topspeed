@@ -1,36 +1,40 @@
 $( document ).ready(function() {
-    $("#service-link").click(function() {
-        $('html, body').animate({
-            scrollTop: $(".content-services").offset().top
-        }, 1000);
-    });
-    
-    $("#cars-link").click(function() {
-        $('html, body').animate({
-            scrollTop: $(".content-cars").offset().top
-        }, 1000);
-    });
-    
     $("#home-link").click(function() {
         $('html, body').animate({
             scrollTop: $(".content-home").offset().top
         }, 1000);
     });
+    $("#service-link").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".content-services").offset().top
+        }, 1000);
+    });
+    $("#mustang-link").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".content-mustang").offset().top
+        }, 1000);
+    });
+    $("#order-link").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".content-mustang").offset().top
+        }, 1000);
+    });
 
     //slider
     checkitem();
-    $('#myCarousel').on('slid', '', checkitem);  // on caroussel move
-    $('#myCarousel').on('slid.bs.carousel', '', checkitem); // on carousel move
+    $('#service-Carousel').on('slid', '', checkitem);  // on caroussel move
+    $('#service-Carousel').on('slid.bs.carousel', '', checkitem); // on carousel move
     
     function checkitem()
     {
-        var $this = $('#myCarousel');
-        if($('.carousel-inner .item:first').hasClass('active')) {
+        debugger;
+        var $this = $('#service-Carousel');
+        if($this.find('.carousel-inner .item:first').hasClass('active')) {
             $this.children('.slide-button.left').hide();
             $this.children('.slide-button.right').show();
             return;
         }
-        if($('.carousel-inner .item:last').hasClass('active')) {
+        if($this.find('.carousel-inner .item:last').hasClass('active')) {
             $this.children('.slide-button.left').show();
             $this.children('.slide-button.right').hide();
             return;

@@ -16,7 +16,8 @@
         <!-- CSS -->
         <link rel="stylesheet" href="CSS/header.css"/>
         <link rel="stylesheet" href="CSS/content.css"/>
-        <link rel="stylesheet" href="CSS/slider.css"/>
+        <link rel="stylesheet" href="CSS/services_slider.css"/>
+        <link rel="stylesheet" href="CSS/order_slider.css"/>
         <!-- JS -->
         <script src="JS/scripts.js"></script>
         <script src="JS/slider.js"></script>
@@ -43,13 +44,13 @@
                                                 <a id="service-link">SLUŽBY</a>
                                             </li>
                                             <li>
-                                                <a id="cars-link">AUTA</a>
+                                                <a id="mustang-link">MUSTANG GT</a>
+                                            </li>
+                                            <li>
+                                                <a id="order-link">OBJEDNAT</a>
                                             </li>
                                             <li>
                                                 <a href="#">REZERVACE</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">PODMÍNKY</a>
                                             </li>
                                             <li>
                                                 <a href="#">KONTAKT</a>
@@ -71,7 +72,7 @@
         </div>
         <div class="background-services">
             <div class="content-services">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                <div id="service-Carousel" class="carousel slide" data-ride="carousel" data-interval="0">
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
@@ -241,19 +242,222 @@
                         </div>
                     </div>
                     <!-- Left and right controls -->
-                    <div class="slide-button left" href="#myCarousel" data-slide="prev">
+                    <div class="slide-button left" href="#service-Carousel" data-slide="prev">
                         <span class="glyphicon glyphicon-menu-left"></span>
                         <span class="sr-only">Previous</span>
                     </div>
-                    <div class="slide-button right" href="#myCarousel" data-slide="next">
+                    <div class="slide-button right" href="#service-Carousel" data-slide="next">
                         <span class="sr-only">Next</span>
                         <span class="glyphicon glyphicon-menu-right"></span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="background-cars">
-            <div class="content-cars"></div>
+        <div class="background-mustang">
+            <div class="mustang-lines">
+                <div class="mustang-line"></div>
+                <div class="mustang-line"></div>
+            </div>
+            <div class="content-mustang">
+                <div class='col-md-12 col-lg-12'>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item mustang-youtube">
+                            <iframe src="https://www.youtube.com/embed/QxzEyJ6WA-o"></iframe>
+                        </div>
+                    </div>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item text">
+                            <div class="centered">
+                                <span class="bold big bottom-padding">Ford Mustang GT 5.0</span>
+                                <p>Ford Mustang, americká ikona, která účinkuje 
+                                    na poli muscle-cars už přes 50 let a stala 
+                                    se pravděpodobně nejúspěšnějším 
+                                    a nejpopulárnějším muscle-car na světě. 
+                                    Snad každý člověk na této planetě by jej chtěl řídit. Pokud patříte mezi ně, jste tu správně! 
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item mustang-back-light"></div>
+                    </div>
+                </div>
+                <div class='col-md-12 col-lg-12'>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item text">
+                            <div class="centered">
+                                <p>Pětilitrový atmosférický osmiválec, 
+                                    nabízející 420 koní a 530 Nm točivého momentu, za svůj 
+                                    neopakovatelný charakter vděčí linearitě výkonu, díky které
+                                    má Mustang GT pružné zrychlení, jaké už v dnešní downsizingové době
+                                     nezažijete. S automatickou převodovkou nebudou mít problém s 
+                                     ukočírovaním vozu i méně zkušení řidiči. Ti statečnější pak 
+                                     mohou převodovku přepnout do sportovního režimu a užít 
+                                     si řev motoru v maximálních otáčkách.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item mustang-speedometer"></div>
+                    </div>
+                    <div class='col-xs-12 col-sm-6 col-md-4 col-lg-4'>
+                        <div class="mustang-item text">
+                            <div class="centered">
+                                <p>Jeho agresivní design s odkazy na klasické Mustangy 
+                                    kam se podíváte, vzbudí rozruch, kamkoli s ním přijedete. 
+                                    Řidiči, kteří uvidí jeho rozzuřenou masku ve svých 
+                                    zpětných zrcátcích, vám ještě rádi uhnou ke krajnici, 
+                                    abyste je mohli předjet.  
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="background-order">
+            <div class="mustang-lines">
+                <div class="mustang-line"></div>
+                <div class="mustang-line"></div>
+            </div>
+            <div class="content-order">
+                <div id="order-Carousel" class="carousel slide" data-ride="carousel" data-interval="0">
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <div class="item-content">
+                                <div class='hidden-xs hidden-sm col-md-6 col-lg-6 no-padding'>
+                                    <div class="order-image">
+                                        <div class="image"></div>
+                                    </div>
+                                </div>
+                                <div class='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+                                    <div class="content">
+                                        <div class="main-text">
+                                            <span class="bold big">Ford Mustang GT 5.0</span>
+                                            <p>Kauce 50.000 Kč</p>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slevomat">
+                                            <div class="col-xs-12 col-sm-10 col-md-8 col-lg-9 slevomat-text">
+                                                <span>Zážitky jízdy kupujte se slevou 70% na Slevomatu:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-2 col-md-4 col-lg-3 slevomat-button-wrapper no-padding">
+                                                <div class="slevomat-button">KOUPIT</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <span>Doba pronájmu:</span>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <select>
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                        <option>3</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <span>Přistavení vozu:</span>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <select>
+                                                        <option>Brno</option>
+                                                        <option>Olomouc</option>
+                                                        <option>Praha</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <span>Ulice a č.p.:</span>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <input type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <span>Město:</span>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <input type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <span>PSČ:</span>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                    <input type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>Cena pronájmu</span>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>3.990 Kč</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>Přistavení vozu</span>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>390 Kč</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold">
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>Celkem</span>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                        <span>4.380 Kč</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <!-- right controls -->
+                                                    <div class="order-button full-width" href="#order-Carousel" data-slide="next">PŮJČIT SI</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                        <div class="item">
+                            <div class="item-content">
+                                <div class="content">
+                                    <div class="order-button" href="#order-Carousel" data-slide="next">POKRAČOVAT</div>
+                                </div>
+                                <!-- left controls -->
+                                <div class="slide-button left" href="#order-Carousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-menu-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="item-content">
+                                <div class="content">
+                                    <div class="order-button">ZAPLATIT</div>
+                                </div>
+                                <!-- left controls -->
+                                <div class="slide-button left" href="#order-Carousel" data-slide="prev">
+                                    <span class="glyphicon glyphicon-menu-left"></span>
+                                    <span class="sr-only">Previous</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <footer>
 	    </footer>
