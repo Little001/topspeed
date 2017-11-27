@@ -134,28 +134,152 @@
 
 /*RESERVATION*/
 .background-reservation {
-    background-color: yellow;
+    background-image: url('../Images/reservation_background.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
     width: 100%;
-    height: 800px;
     position: relative;
     overflow: hidden;
 }
 .content-reservation {
     padding-top: 20px;
     padding-bottom: 20px;
+    overflow: hidden;
     width: 100%;
     margin: 0 auto;
     max-width: 1600px;
+}
+.content-reservation input {
+    border: 1px solid black;
+    border-radius: 3px;
+    line-height: 40px;
+    width: 100%;
+}
+.content-reservation .reservation-button {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+.content-reservation .reservation-parts {
+    height: 550px;
+}
+.content-reservation .left-content {
+    background: #F0E3BC;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 50px;
+    padding-bottom: 0;
+}
+.content-reservation .center-content {
+    padding-top: 50px;
+    background: #D4B568;
+    height: 100%;
+}
+.content-reservation .right-content {
+    padding-top: 50px;
+    background: #2B1D05;
+    height: 100%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.content-reservation .time-table {
+    padding: 0;
+}
+.content-reservation .time-table:nth-child(1) {
+    padding-right: 2px;
+}
+.content-reservation .time-table:nth-child(2) {
+    padding-left: 2px;
+}
+.content-reservation .time-tables {
+    padding: 0;
+}
+.content-reservation .time-table ul {
+    border: 2px solid #DEC483;
+    background: #D4B568;
+    border-radius: 3px;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    list-style-type: none;
+    color: white;
+}
+.content-reservation .time-table ul li{
+    text-align: center;
+}
+.content-reservation .time-table ul li:hover{
+    color: black;
+    cursor: pointer;
+}
+
+/*CONTACT*/
+.background-contact {
+    background-image: url('../Images/contact_background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+.content-contact{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+.content-contact .end-line {
+    margin-top: 250px;
+    text-align: center;
+    border-top: 1px solid black;
+}
+.content-contact .contact-text {
+    margin-top: 100px;
+    text-align: center;
 }
 
 @media (max-width: 991px) {
     .background-services {
         background-position: center;
     }
-}
-
-@media (max-width: 767px) {
+    .content-reservation .reservation-parts {
+        height: auto;
+    }
+    .content-reservation .left-content {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0px;
+        height: auto;
+    }
+    .content-reservation .center-content {
+        height: auto;
+        padding-top: 10px;
+    }
+    .content-reservation .right-content {
+        padding-top: 10px;
+        border-top-right-radius: 0px;
+        border-bottom-left-radius: 10px;
+        height: auto;
+    }
+    .content-reservation .reservation-button {
+        padding-bottom: 20px;
+    }
+    .datepicker-inline .datepicker-days thead tr:nth-child(2) {
+        height: 45px;
+    }
     .content-cars{
         min-height: 1650px;
+    }
+}
+
+@media (max-width: 500px) {
+    .background-home .news {
+        width: 98%;
     }
 }

@@ -38,6 +38,11 @@ $( document ).ready(function() {
             scrollTop: $(".background-reservation").offset().top
         }, 1000);
     });
+    $("#contact-link").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".background-contact").offset().top
+        }, 1000);
+    });
 
     //slider
     checkitem();
@@ -74,8 +79,17 @@ $( document ).ready(function() {
     });
 
     $("#datepicker").datepicker().on('changeMonth', function(e){ 
-        debugger;
-        fillCellContent();
+        setTimeout(fillCellContent, 10);
+    });
+    $("#datepicker").datepicker().on('changeDate', function() {
+        setTimeout(fillCellContent, 10);
+    });
+    //arrows
+    $('#datepicker table thead th.prev').html(function() {
+        return "<i class='glyphicon glyphicon-arrow-left'></i>";
+    });
+    $('#datepicker table thead th.next').html(function() {
+        return "<i class='glyphicon glyphicon-arrow-right'></i>";
     });
 
     function fillCellContent() {

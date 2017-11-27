@@ -4,9 +4,8 @@
 }
 
 .datepicker-inline .datepicker-days thead tr:nth-child(2){
-    height: 120px;
+    height: 80px;
     vertical-align: bottom;
-    font-weight: 10px;
  }
  .datepicker-inline .datepicker-days thead tr:nth-child(2) th{
     font-size: 25px;
@@ -15,7 +14,7 @@
 
  .datepicker-inline .datepicker-switch {
      color: black;
-     cursor: default;
+     cursor: default!important;
      background: transparent;
  }
  .datepicker-inline .datepicker-switch:hover {
@@ -26,27 +25,71 @@
 .datepicker-inline .datepicker-days td {
     border-radius: 50%;
     background-image: none!important;
-    width: 80px;
-    height: 80px;
-}
-
-.datepicker-inline .datepicker-days td .cell-content {
-    background: red;
+    position: relative;
+    width: 110px;
+    height: 60px;
 }
 
 .datepicker-inline .datepicker-days td:hover {
+    background: transparent!important;
+}
+
+.datepicker-inline .datepicker-days td:hover .cell-content {
+    position: absolute;
+    margin: 0 auto;
+    top: 25%;
+    left: 32%;
+    width: 30px;
+    line-height: 30px;
     border-radius: 50%;
-    background-image: none!important;
-    background-color: black!important;
     opacity: 0.5;
+    color: white;
+    background: black;
 }
 
 .datepicker-inline .datepicker-days td.active {
-    background-color: #E3D4AF !important;
+    background: none !important;
+}
+
+.datepicker-inline .datepicker-days td.active .cell-content {
+    margin: 0 auto;
+    width: 30px;
+    line-height: 30px;
     border-radius: 50%;
+    opacity: 0.5;
+    color: white;
+    background: black;
 }
 
 .datepicker-inline .datepicker-days td.today {
     background-color: transparent!important;
     color: red;
+}
+
+@media (max-width: 1100px) {
+    .datepicker-inline .datepicker-days td:hover .cell-content {
+        left: 27%;
+    }
+}
+
+@media (max-width: 991px) {
+    .datepicker-inline .datepicker-days td:hover .cell-content {
+        left: 37%;
+    }
+}
+
+@media (max-width: 767px) {
+    .datepicker-inline .datepicker-days td:hover .cell-content {
+        left: 35%;
+    }
+}
+@media (max-width: 600px) {
+    .datepicker-inline .datepicker-days td:hover .cell-content {
+        left: 28%;
+    }
+}
+@media (max-width: 500px) {
+    .datepicker-inline .datepicker-days td:hover .cell-content {
+        left: 16%;
+    }
 }

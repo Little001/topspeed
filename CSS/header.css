@@ -97,6 +97,20 @@ body {
     display: block;
     padding-bottom: 15px;
 }
+.text-center {
+    text-align: center;;
+}
+/*Button*/
+.my-button{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 5px;
+    line-height: 40px;
+    width: 100%;
+    border-radius: 3px;
+    color: white;
+    background: #856F32;
+}
 
 @media (max-width: 767px) {
     .buttons ul {
