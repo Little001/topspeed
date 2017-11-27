@@ -1,0 +1,52 @@
+.datepicker-inline {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.datepicker-inline .datepicker-days thead tr:nth-child(2){
+    height: 120px;
+    vertical-align: bottom;
+    font-weight: 10px;
+ }
+ .datepicker-inline .datepicker-days thead tr:nth-child(2) th{
+    font-size: 25px;
+    font-weight: bold;
+ }
+
+ .datepicker-inline .datepicker-switch {
+     color: black;
+     cursor: default;
+     background: transparent;
+ }
+ .datepicker-inline .datepicker-switch:hover {
+    cursor: default;
+    background: transparent!important;
+}
+
+.datepicker-inline .datepicker-days td {
+    border-radius: 50%;
+    background-image: none!important;
+    width: 80px;
+    height: 80px;
+}
+
+.datepicker-inline .datepicker-days td .cell-content {
+    background: red;
+}
+
+.datepicker-inline .datepicker-days td:hover {
+    border-radius: 50%;
+    background-image: none!important;
+    background-color: black!important;
+    opacity: 0.5;
+}
+
+.datepicker-inline .datepicker-days td.active {
+    background-color: #E3D4AF !important;
+    border-radius: 50%;
+}
+
+.datepicker-inline .datepicker-days td.today {
+    background-color: transparent!important;
+    color: red;
+}

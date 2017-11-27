@@ -1,4 +1,18 @@
 $( document ).ready(function() {
+    (function($){
+        $.fn.datepicker.dates['cs'] = {
+            days: ["Neděle", "Pondělí", "Úterý", "Středa", "Čtvrtek", "Pátek", "Sobota"],
+            daysShort: ["Ned", "Pon", "Úte", "Stř", "Čtv", "Pát", "Sob"],
+            daysMin: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"],
+            months: ["Leden", "Únor", "Březen", "Duben", "Květen", "Červen", "Červenec", "Srpen", "Září", "Říjen", "Listopad", "Prosinec"],
+            monthsShort: ["Led", "Úno", "Bře", "Dub", "Kvě", "Čer", "Čnc", "Srp", "Zář", "Říj", "Lis", "Pro"],
+            today: "Dnes",
+            clear: "Vymazat",
+            monthsTitle: "Měsíc",
+            weekStart: 1,
+            format: "dd.mm.yyyy"
+        };
+    }(jQuery));
     $("#home-link").click(function() {
         $('html, body').animate({
             scrollTop: $(".content-home").offset().top
@@ -16,7 +30,12 @@ $( document ).ready(function() {
     });
     $("#order-link").click(function() {
         $('html, body').animate({
-            scrollTop: $(".content-mustang").offset().top
+            scrollTop: $(".content-order").offset().top
+        }, 1000);
+    });
+    $("#reservation-link").click(function() {
+        $('html, body').animate({
+            scrollTop: $(".background-reservation").offset().top
         }, 1000);
     });
 
@@ -27,7 +46,6 @@ $( document ).ready(function() {
     
     function checkitem()
     {
-        debugger;
         var $this = $('#service-Carousel');
         if($this.find('.carousel-inner .item:first').hasClass('active')) {
             $this.children('.slide-button.left').hide();
@@ -41,6 +59,33 @@ $( document ).ready(function() {
         }
         $this.children('.slide-button.left').show();
         $this.children('.slide-button.right').show();
+    }
+
+
+    $('#datepicker').datepicker({
+        weekStart : 1,
+        language: 'cs',
+        todayHighlight: 1
+    })
+    fillCellContent();
+
+    $("#datepicker .datepicker-switch").on('click', function (e) {
+        e.stopPropagation();
+    });
+
+    $("#datepicker").datepicker().on('changeMonth', function(e){ 
+        debugger;
+        fillCellContent();
+    });
+
+    function fillCellContent() {
+        $('#datepicker table tbody tr td').each(function (item) {
+            var value = $(this).html();
+    
+            $(this).html(function() {
+                return "<div class='cell-content'>"+ value + "</div>";
+            });
+        })
     }
 });
 

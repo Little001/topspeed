@@ -9,19 +9,21 @@
         <!-- BOOTSTRAP -->
         <link rel="stylesheet" href="Bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="Bootstrap/css/bootstrap-theme.min.css"/>
-        <link rel="stylesheet" href="Bootstrap/css/bootstrap-social.css"/>
-        <link rel="stylesheet" href="Bootstrap/css/font-awesome.css"/>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <script src="Bootstrap/js/moment.js"></script>
         <script src="Bootstrap/js/bootstrap.min.js"></script>
+        <script src="Bootstrap/js/datepicker.js"></script>
+        <link rel="stylesheet" href="Bootstrap/css/datepicker.min.css" />
+        <link rel="stylesheet" href="Bootstrap/css/datepicker3.min.css" />
+        
         <!-- CSS -->
         <link rel="stylesheet" href="CSS/header.css"/>
         <link rel="stylesheet" href="CSS/content.css"/>
         <link rel="stylesheet" href="CSS/services_slider.css"/>
         <link rel="stylesheet" href="CSS/order_slider.css"/>
+        <link rel="stylesheet" href="CSS/datepicker.css"/>
         <!-- JS -->
         <script src="JS/scripts.js"></script>
-        <script src="JS/slider.js"></script>
-        
     </head>
     <body>
          <header>
@@ -50,7 +52,7 @@
                                                 <a id="order-link">OBJEDNAT</a>
                                             </li>
                                             <li>
-                                                <a href="#">REZERVACE</a>
+                                                <a id="reservation-link">REZERVACE</a>
                                             </li>
                                             <li>
                                                 <a href="#">KONTAKT</a>
@@ -435,6 +437,7 @@
                                 <div class="content">
                                     <div class="col-xs-0 col-sm-3 col-md-3 col-lg-4"></div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 form">
+                                        <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold big">Údaje o zákazníkovi</span>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                                 <span>Jméno a Příjmení:</span>
@@ -496,18 +499,18 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                                     <input type="checkbox"/>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                                                     <span>Chci rezervovat termín ihned</span>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                                                     <input type="checkbox"/>
                                                 </div>
-                                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
                                                     <span>Souhlasím s Obchodními podmínkami</span>
                                                 </div>
                                             </div>
@@ -529,7 +532,73 @@
                         <div class="item">
                             <div class="item-content">
                                 <div class="content">
-                                    <div class="order-button">ZAPLATIT</div>
+                                    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-4"></div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 form">
+                                        <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold big">Rekapitulace</span>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Jméno a Příjmení:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>František Uzdichcal:</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Ulice a č.p.:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Pod mostem 1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Město:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Vidlákov</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>PSČ:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>77700</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>E-Mail:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>nereknu@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Telefon:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>777 777 777</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>Metoda platby:</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                                <span>On-line platební kartou</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                <!-- right controls -->
+                                                <div class="order-button">ZAPLATIT</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-4"></div>
                                 </div>
                                 <!-- left controls -->
                                 <div class="slide-button left" href="#order-Carousel" data-slide="prev">
@@ -540,6 +609,23 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="background-reservation">
+            <div class="content-reservation">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        vložte kod:
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <div id="datepicker" class="datepicker"></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                        Hodiny
+                        <div class="order-button">REZERVOVAT</div>
+                    </div>
+                </div>
+                
             </div>
         </div>
         <footer>

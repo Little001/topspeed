@@ -132,6 +132,22 @@
     max-width: 1600px;
 }
 
+/*RESERVATION*/
+.background-reservation {
+    background-color: yellow;
+    width: 100%;
+    height: 800px;
+    position: relative;
+    overflow: hidden;
+}
+.content-reservation {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
 @media (max-width: 991px) {
     .background-services {
         background-position: center;
