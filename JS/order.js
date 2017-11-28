@@ -57,20 +57,23 @@ $( document ).ready(function() {
 
     //change order time
     $("#order-time").change(function() {
-        switch($("#order-time").val()) {
+        var orderPrice = $("#order-price"),
+            orderTime = $("#order-time");
+
+        switch(orderTime.val()) {
             case "1":
                 currentHoursPrice = SIX_HOURS_PRICE;
-                $("#order-price").text(ORDER_PRICE + currentHoursPrice);
+                orderPrice.text(ORDER_PRICE + currentHoursPrice);
                 orderObject.hours = 1;
                 break;
             case "2":
                 currentHoursPrice = TWELVE_HOURS_PRICE;
-                $("#order-price").text(ORDER_PRICE + currentHoursPrice);
+                orderPrice.text(ORDER_PRICE + currentHoursPrice);
                 orderObject.hours = 2;
                 break;
             case "3":
                 currentHoursPrice = TWENTY_FOUR_HOURS_PRICE;
-                $("#order-price").text(ORDER_PRICE + currentHoursPrice);
+                orderPrice.text(ORDER_PRICE + currentHoursPrice);
                 orderObject.hours = 3;
                 break;
         }
@@ -80,7 +83,9 @@ $( document ).ready(function() {
 
     //change delivery car
     $("#order-delivery").change(function() {
-        switch($("#order-delivery").val()) {
+        var orderDelivery = $("#order-delivery");
+
+        switch(orderDelivery.val()) {
             case "1":
                 currentDeliveryPrice = DELIVERY_BRNO_PRICE;
                 orderObject.delivery = 1;

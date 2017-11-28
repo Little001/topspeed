@@ -215,6 +215,9 @@
     color: black;
     cursor: pointer;
 }
+.content-reservation .time-table ul li.reservation{
+    background: red;
+}
 
 /*CONTACT*/
 .background-contact {

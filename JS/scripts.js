@@ -81,7 +81,7 @@ $( document ).ready(function() {
     $("#datepicker").datepicker().on('changeMonth', function(e){ 
         setTimeout(fillCellContent, 10);
     });
-    $("#datepicker").datepicker().on('changeDate', function() {
+    $("#datepicker").datepicker().on('changeDate', function() {   
         setTimeout(fillCellContent, 10);
     });
     //arrows
