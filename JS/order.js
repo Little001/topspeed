@@ -1,14 +1,14 @@
 $( document ).ready(function() {
-    var ORDER_PRICE = 3990,
-        SIX_HOURS_PRICE = 500,
-        TWELVE_HOURS_PRICE = 1000,
-        TWENTY_FOUR_HOURS_PRICE = 1500,
-        DELIVERY_BRNO_PRICE = 390;
-        DELIVERY_OLOMOUC_PRICE = 290,
-        DELIVERY_PRAGUE_PRICE = 600,
-        currentHoursPrice = SIX_HOURS_PRICE;
-        currentDeliveryPrice = DELIVERY_BRNO_PRICE;
-        totalPrice = ORDER_PRICE + currentHoursPrice + currentDeliveryPrice; //default
+    var TWELVE_HOURS_PRICE = 4490,
+        ONE_DAY_PRICE = 5500,
+        TWO_DAY_PRICE = 8500,
+        THREE_DAY_PRICE = 9600,
+        FOUR_DAY_PRICE = 11230,
+        FIVE_DAY_PRICE = 12500,
+        WEEKEND_PRICE = 9000,
+        HALF_HOUR_PRICE = 2000,
+        HOUR_PRICE = 4000,
+        currentPrice = TWELVE_HOURS_PRICE; //default
 
     var orderObject = {
         street: null,
@@ -21,19 +21,21 @@ $( document ).ready(function() {
         customerEmail: null,
         customerPhone: null,
         payMethod: "",
-        hours: 1,
+        duration: 1,
         delivery: 1
     };
 
-    $("#order-price").text(ORDER_PRICE + SIX_HOURS_PRICE);
-    $("#order-delivery-price").text(DELIVERY_BRNO_PRICE);
-    $("#total-price").text(totalPrice);
+    var orderMethod = "normal";
+
+    $("#total-price").text(currentPrice);
     
     $("#borow-button").click(function () {
-        if(!firstStepIsValid()) {
-            return;
+        if (orderMethod !== "normal") {
+        } else {
+            if(!firstStepIsValid()) {
+                return;
+            }
         }
-        
         $("#borow-button").closest('.carousel').carousel('next');
     });
 
@@ -53,32 +55,87 @@ $( document ).ready(function() {
         $("#overview-email").text(orderObject.customerEmail);
         $("#overview-phone").text(orderObject.customerPhone);
         $("#overview-pay-method").text(orderObject.payMethod);
-    });;
+    });
 
+    /*RADIO BUTTON METHOD*/
+    $(".drive-method").change(function () {
+        if($("input[type='radio'].drive-method").is(':checked')) {
+            var radioMethod = $("input[type='radio'].drive-method:checked").val();
+    
+            switch(radioMethod) {
+                case "enjoy":
+                    orderMethod = "onjoy";
+                    $(".enjoyElement").show();
+                    $(".normalElement").hide();
+                    $(".form-item.street").hide();
+                    $(".form-item.city").hide();
+                    $(".form-item.psc").hide();
+                    $("#total-price").text(HALF_HOUR_PRICE);
+                    break;
+                case "normal":
+                    orderMethod = "normal";
+                    $(".enjoyElement").hide();
+                    $(".normalElement").show();
+                    $(".form-item.street").show();
+                    $(".form-item.city").show();
+                    $(".form-item.psc").show();
+                    $("#total-price").text(TWELVE_HOURS_PRICE);
+                    break;
+            }
+        }
+    });
+
+    //change order-enjoy
+    $("#order-enjoy").change(function() {
+        var orderEnjoy = $("#order-enjoy");
+
+        switch(orderEnjoy.val()) {
+            case "1":
+                currentPrice = HALF_HOUR_PRICE;
+                orderObject.days = 1;
+                break;
+            case "2":
+                currentPrice = HOUR_PRICE;
+                orderObject.days = 2;
+                break;
+        }
+        $("#total-price").text(currentPrice);
+    });
     //change order time
     $("#order-time").change(function() {
-        var orderPrice = $("#order-price"),
-            orderTime = $("#order-time");
+        var orderTime = $("#order-time");
 
         switch(orderTime.val()) {
             case "1":
-                currentHoursPrice = SIX_HOURS_PRICE;
-                orderPrice.text(ORDER_PRICE + currentHoursPrice);
-                orderObject.hours = 1;
+                currentPrice = TWELVE_HOURS_PRICE;
+                orderObject.days = 1;
                 break;
             case "2":
-                currentHoursPrice = TWELVE_HOURS_PRICE;
-                orderPrice.text(ORDER_PRICE + currentHoursPrice);
-                orderObject.hours = 2;
+                currentPrice = ONE_DAY_PRICE;
+                orderObject.days = 2;
                 break;
             case "3":
-                currentHoursPrice = TWENTY_FOUR_HOURS_PRICE;
-                orderPrice.text(ORDER_PRICE + currentHoursPrice);
-                orderObject.hours = 3;
+                currentPrice = TWO_DAY_PRICE;
+                orderObject.days = 3;
+                break;
+            case "4":
+                currentPrice = THREE_DAY_PRICE;
+                orderObject.days = 4;
+                break;
+            case "5":
+                currentPrice = FOUR_DAY_PRICE;
+                orderObject.days = 5;
+                break;
+            case "6":
+                currentPrice = FIVE_DAY_PRICE;
+                orderObject.days = 6;
+                break;
+            case "7":
+                currentPrice = WEEKEND_PRICE;
+                orderObject.days = 7;
                 break;
         }
-        totalPrice = ORDER_PRICE + currentHoursPrice + currentDeliveryPrice;
-        $("#total-price").text(totalPrice);
+        $("#total-price").text(currentPrice);
     });
 
     //change delivery car
@@ -87,21 +144,15 @@ $( document ).ready(function() {
 
         switch(orderDelivery.val()) {
             case "1":
-                currentDeliveryPrice = DELIVERY_BRNO_PRICE;
                 orderObject.delivery = 1;
                 break;
             case "2":
-                currentDeliveryPrice = DELIVERY_OLOMOUC_PRICE;
                 orderObject.delivery = 2;
                 break;
             case "3":
-                currentDeliveryPrice = DELIVERY_PRAGUE_PRICE;
                 orderObject.delivery = 3;
                 break;
         }
-        $("#order-delivery-price").text(currentDeliveryPrice);
-        totalPrice = ORDER_PRICE + currentHoursPrice + currentDeliveryPrice;
-        $("#total-price").text(totalPrice);
     });
 
     function firstStepIsValid() {

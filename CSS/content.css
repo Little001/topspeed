@@ -3,12 +3,13 @@
     background-image: url('../Images/mustang.png');
     background-repeat: no-repeat;
     background-position: center; 
+    background-size: 104%;
     width: 100%;
 }
 .content-home {
     max-width: 1024px;   
     margin: 0 auto;  
-    min-height: 900px;
+    min-height: 830px;
 }
 .background-home .news {
     border: 2px solid white;
@@ -47,56 +48,33 @@
 
 /*MUSTANG GT*/
 .background-mustang {
-    background-color: #00B0F0;
+    background-color: white;
     width: 100%;
     position: relative;
     overflow: hidden;
+    font-size: 15px;
 }
 .content-mustang {
-    padding-top: 20px;
-    padding-bottom: 20px;
     width: 100%;
     margin: 0 auto;
     max-width: 1600px;
 }
-.mustang-lines {
-    width: 320px;
-    height: 100%;
-    position: absolute; 
-    left: 0; 
-    right: 0; 
-    margin-left: auto;
-    margin-right: auto; 
-}
-.mustang-lines .mustang-line {
-    position: absolute;
-    width: 150px;
-    height: 100%;
-    background-color: black;
-}
-.mustang-lines .mustang-line:nth-child(1) {
-    left: 0;
-}
-.mustang-lines .mustang-line:nth-child(2) {
-    right: 0;
-}
 .content-mustang .mustang-item {
     width: 100%;
     height: 300px;
-    margin-bottom: 35px;
     text-align: center;
 }
 .content-mustang .mustang-item.text {
     position: relative;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
     background-color:white;
 }
 .content-mustang .mustang-item.text .centered {
     position: absolute;
     top: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
     transform: translateY(-50%);
 }
 .content-mustang .mustang-item.mustang-back-light {
@@ -119,7 +97,7 @@
 
 /*ORDER*/
 .background-order {
-    background-color: #00B0F0;
+    background-color: #856F32;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -128,6 +106,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
+    font-size: 15px;
     margin: 0 auto;
     max-width: 1600px;
 }
