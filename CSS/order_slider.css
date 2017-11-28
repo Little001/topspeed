@@ -108,6 +108,9 @@
 #order-Carousel .item .item-content .my-button{ 
     margin-top: 25px;
 }
+#order-Carousel .item .item-content .includingFluel{ 
+    display: none;
+}
 
 
 
@@ -118,7 +121,7 @@
 }
 @media (max-width: 767px) {
     #order-Carousel .item .item-content {
-        height: 660px;
+        height: 670px;
     }
     #order-Carousel .slide-button {
         width: 50px;

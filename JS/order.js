@@ -1,13 +1,13 @@
 $( document ).ready(function() {
-    var TWELVE_HOURS_PRICE = 4490,
-        ONE_DAY_PRICE = 5500,
-        TWO_DAY_PRICE = 8500,
-        THREE_DAY_PRICE = 9600,
-        FOUR_DAY_PRICE = 11230,
-        FIVE_DAY_PRICE = 12500,
-        WEEKEND_PRICE = 9000,
-        HALF_HOUR_PRICE = 2000,
-        HOUR_PRICE = 4000,
+    var TWELVE_HOURS_PRICE = 7999,
+        ONE_DAY_PRICE = 9999,
+        TWO_DAY_PRICE = 13999,
+        THREE_DAY_PRICE = 17999,
+        FOUR_DAY_PRICE = 21999,
+        FIVE_DAY_PRICE = 25999,
+        WEEKEND_PRICE = 14999,
+        HALF_HOUR_PRICE = 3499,
+        HOUR_PRICE = 5999,
         currentPrice = TWELVE_HOURS_PRICE; //default
 
     var orderObject = {
@@ -70,6 +70,7 @@ $( document ).ready(function() {
                     $(".form-item.street").hide();
                     $(".form-item.city").hide();
                     $(".form-item.psc").hide();
+                    $("#order-Carousel .item .item-content .includingFluel").show();
                     $("#total-price").text(HALF_HOUR_PRICE);
                     break;
                 case "normal":
@@ -79,6 +80,7 @@ $( document ).ready(function() {
                     $(".form-item.street").show();
                     $(".form-item.city").show();
                     $(".form-item.psc").show();
+                    $("#order-Carousel .item .item-content .includingFluel").hide();
                     $("#total-price").text(TWELVE_HOURS_PRICE);
                     break;
             }
