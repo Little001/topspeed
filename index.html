@@ -24,6 +24,7 @@
         <link rel="stylesheet" href="CSS/datepicker.css"/>
         <!-- JS -->
         <script src="JS/scripts.js"></script>
+        <script src="JS/order.js"></script>
     </head>
     <body>
          <header>
@@ -354,10 +355,10 @@
                                                     <span>Doba pronájmu:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <select>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
+                                                    <select id="order-time">
+                                                        <option value="1">6 hodin</option>
+                                                        <option value="2">12 hodin</option>
+                                                        <option value="3">24 hodin</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -366,10 +367,10 @@
                                                     <span>Přistavení vozu:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <select>
-                                                        <option>Brno</option>
-                                                        <option>Olomouc</option>
-                                                        <option>Praha</option>
+                                                    <select id="order-delivery">
+                                                        <option value="1">Brno</option>
+                                                        <option value="2">Olomouc</option>
+                                                        <option value="3">Praha</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -378,7 +379,7 @@
                                                     <span>Ulice a č.p.:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <input type="text"/>
+                                                    <input id="order-street" type="text"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -386,7 +387,7 @@
                                                     <span>Město:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <input type="text"/>
+                                                    <input id="order-city" type="text"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -394,7 +395,7 @@
                                                     <span>PSČ:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                    <input type="text"/>
+                                                    <input id="order-psc" type="text"/>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
@@ -403,7 +404,7 @@
                                                         <span>Cena pronájmu</span>
                                                     </div>
                                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                        <span>3.990 Kč</span>
+                                                        <span id="order-price"></span><span> Kč</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -411,7 +412,7 @@
                                                         <span>Přistavení vozu</span>
                                                     </div>
                                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                        <span>390 Kč</span>
+                                                        <span id="order-delivery-price"></span><span> Kč</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold">
@@ -419,12 +420,14 @@
                                                         <span>Celkem</span>
                                                     </div>
                                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                        <span>4.380 Kč</span>
+                                                        <span id="total-price"></span><span> Kč</span>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                     <!-- right controls -->
-                                                    <div class="my-button full-width" href="#order-Carousel" data-slide="next">PŮJČIT SI</div>
+                                                    <div class="my-button full-width" id="borow-button" data-slide="next">
+                                                        PŮJČIT SI
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -443,7 +446,7 @@
                                                 <span>Jméno a Příjmení:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-name" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
@@ -451,7 +454,7 @@
                                                 <span>Ulice a č.p.:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-street" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -459,7 +462,7 @@
                                                 <span>Město:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-city" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -467,7 +470,7 @@
                                                 <span>PSČ:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-psc" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -475,7 +478,7 @@
                                                 <span>E-Mail:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-email" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -483,7 +486,7 @@
                                                 <span>Telefon:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <input type="text"/>
+                                                <input id="order-customer-phone" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -491,32 +494,34 @@
                                                 <span>Metoda platby:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <select>
-                                                    <option>On-line platební kartou</option>
-                                                    <option>outher</option>
+                                                <select id="order-customer-pay-method">
+                                                    <option value="On-line platební kartou">On-line platební kartou</option>
+                                                    <option value="other">other</option>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                    <input type="checkbox"/>
+                                                    <input id="order-reservation-now" type="checkbox" value="FALSE"/>
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <span>Chci rezervovat termín ihned</span>
+                                                    <label for="order-reservation-now">Chci rezervovat termín ihned</label>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                                                    <input type="checkbox"/>
+                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 checkboxInput">
+                                                    <input id="order-agree" name="name" type="checkbox"value="FALSE" />
                                                 </div>
                                                 <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <span>Souhlasím s Obchodními podmínkami</span>
+                                                    <label for="orderAgree">Souhlasím s Obchodními podmínkami</label>
                                                 </div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <!-- right controls -->
-                                                <div class="my-button" href="#order-Carousel" data-slide="next">POKRAČOVAT</div>
+                                                <div class="my-button" id="order-continue" data-slide="next">
+                                                    POKRAČOVAT
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -540,7 +545,7 @@
                                                 <span>Jméno a Příjmení:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>František Uzdichcal:</span>
+                                                <span id="overview-name"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
@@ -548,7 +553,7 @@
                                                 <span>Ulice a č.p.:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>Pod mostem 1</span>
+                                                <span id="overview-street"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -556,7 +561,7 @@
                                                 <span>Město:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>Vidlákov</span>
+                                                <span id="overview-city"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -564,7 +569,7 @@
                                                 <span>PSČ:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>77700</span>
+                                                <span id="overview-psc"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -572,7 +577,7 @@
                                                 <span>E-Mail:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>nereknu@gmail.com</span>
+                                                <span id="overview-email"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -580,7 +585,7 @@
                                                 <span>Telefon:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>777 777 777</span>
+                                                <span id="overview-phone"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -588,7 +593,7 @@
                                                 <span>Metoda platby:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                                <span>On-line platební kartou</span>
+                                                <span id="overview-pay-method"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">

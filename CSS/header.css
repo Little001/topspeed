@@ -101,7 +101,7 @@ body {
     text-align: center;;
 }
 /*Button*/
-.my-button{
+.my-button {
     cursor: pointer;
     text-align: center;
     margin-top: 5px;
@@ -110,6 +110,9 @@ body {
     border-radius: 3px;
     color: white;
     background: #856F32;
+}
+.error {
+    border: 1px solid red!important;
 }
 
 @media (max-width: 767px) {
