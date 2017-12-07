@@ -1,0 +1,34 @@
+.content-contact .contact-text {
+    text-align: left;
+}
+.content-contact .contact-line {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.content-contact .contact-main-text {
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.content-contact input[type="text"] {
+    border: 2px solid black;
+    border-radius: 3px;
+    color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+    line-height: 40px;
+    width: 100%;
+}
+
+.content-contact textarea {
+    border: 2px solid black;
+    border-radius: 3px;
+    color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 100%;
+    height: 210px;
+    resize: none;
+}
+

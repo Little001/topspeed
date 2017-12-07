@@ -117,11 +117,17 @@ body {
     cursor: pointer;
     text-align: center;
     margin-top: 5px;
+    margin: 0 auto;
     line-height: 40px;
-    width: 100%;
+    width: 250px;
     border-radius: 3px;
     color: white;
-    background: #856F32;
+    font-weight: bold;
+    background: #BC9E4E; /* Old browsers */
+    background: -moz-linear-gradient(-75deg, #BC9E4E 22%, #D2C193 30%, #8F7636 33%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-75deg, #BC9E4E 22%,#D2C193 30%,#8F7636 33%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(165deg, #BC9E4E 22%, #D2C193 30%, #8F7636 33%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BC9E4E', endColorstr='#8F7636',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .error {
     border: 1px solid red!important;

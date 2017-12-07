@@ -97,6 +97,11 @@
 
 /*ORDER*/
 .background-order {
+    background: #C5A558; /* Old browsers */
+    background: -moz-linear-gradient(top, #C5A558 0%, #674D1C 40%, #241805 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #C5A558 0%,#674D1C 40%,#241805 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #C5A558 0%,#674D1C 40%,#241805 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C5A558', endColorstr='#241805',GradientType=0 ); /* IE6-9 */
     background-color: #856F32;
     width: 100%;
     position: relative;
@@ -106,6 +111,7 @@
     padding-top: 20px;
     padding-bottom: 20px;
     width: 100%;
+    color: white;
     font-size: 15px;
     margin: 0 auto;
     max-width: 1600px;
@@ -128,6 +134,7 @@
     padding-bottom: 20px;
     overflow: hidden;
     width: 100%;
+    font-size: 15px;
     margin: 0 auto;
     max-width: 1600px;
 }
@@ -208,21 +215,29 @@
     overflow: hidden;
 }
 .content-contact{
-    padding-top: 20px;
-    padding-bottom: 20px;
+    font-size: 15px;
+    padding-top: 40px;
+    padding-bottom: 40px;
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
     max-width: 1600px;
 }
-.content-contact .end-line {
-    margin-top: 250px;
-    text-align: center;
-    border-top: 1px solid black;
+
+/*FOOTER*/
+.background-footer {
+    background: black;
+    position: relative;
+    overflow: hidden;
 }
-.content-contact .contact-text {
-    margin-top: 100px;
-    text-align: center;
+.content-footer{
+    font-size: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1600px;
 }
 
 @media (max-width: 991px) {

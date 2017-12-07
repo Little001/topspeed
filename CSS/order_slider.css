@@ -1,15 +1,12 @@
 #order-Carousel {
     background: none;
 }
-#order-Carousel .item {
-    color: black;
-}
+
 #order-Carousel .item .item-content {
     position: relative;
     padding-top: 50px;
     padding-bottom: 50px;
     overflow: hidden;
-    background: #856F32;
     height: 505px;
 }
 #order-Carousel .slide-button {
@@ -61,9 +58,14 @@
     padding-bottom: 15px;
 }
 
-#order-Carousel .item .item-content .content .slevomat .slevomat-button-wrapper{
+#order-Carousel .item .item-content .content .slevomat .slevomat-text { 
+    display: inline-block;
+}
+
+#order-Carousel .item .item-content .content .slevomat .slevomat-button-wrapper {
+    display: inline-block;
     position: relative;
-    left: 0;
+    left: 10px;
 }
 
 #order-Carousel .item .item-content .content .order-overview {
@@ -71,25 +73,28 @@
 }
 
 #order-Carousel .item .item-content .content .slevomat .slevomat-button{
-    background: #00B0F0;
-    color: white;
-    border-bottom: 2px solid black;
+    background: #463007;
+    color: #C5A558;
+    font-weight: bold;
+    border-bottom: 3px solid black;
     border-radius: 3px;
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     width: 110px;
     cursor: pointer;
 }
 
 #order-Carousel .item .item-content .content .form input[type="text"] {
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 3px;
+    color: black;
     padding-left: 3px;
     padding-right: 3px;
     width: 100%;
 }
 #order-Carousel .item .item-content .content .form select {
-    border: 1px solid black;
+    border: 2px solid black;
+    color: black;
     border-radius: 3px;
     width: 100%;    
 }
