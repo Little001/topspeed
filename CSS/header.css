@@ -107,7 +107,11 @@ body {
 }
 .bottom-padding {
     display: block;
-    padding-bottom: 15px;
+    padding-bottom: 15px!important;
+}
+.big-bottom-padding {
+    display: block;
+    padding-bottom: 30px!important;
 }
 .text-center {
     text-align: center;;
@@ -118,9 +122,11 @@ body {
     text-align: center;
     margin-top: 5px;
     margin: 0 auto;
-    line-height: 40px;
-    width: 250px;
+    line-height: 35px;
+    width: 100%;
+    max-width: 236px;
     border-radius: 3px;
+    border-bottom: 2px solid black;
     color: white;
     font-weight: bold;
     background: #BC9E4E; /* Old browsers */
@@ -130,7 +136,7 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BC9E4E', endColorstr='#8F7636',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 .error {
-    border: 1px solid red!important;
+    border: 2px solid red!important;
 }
 
 @media (max-width: 767px) {
@@ -138,6 +144,9 @@ body {
         display: block;
     }
     .menu .logo { 
-        background-size: 96% 160px;
+        background-size: 480px;
+        background-position: right 53% bottom 150%
     }
+}
+@media (max-width: 500px) {
 }

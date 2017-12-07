@@ -79,7 +79,7 @@
     border-bottom: 3px solid black;
     border-radius: 3px;
     text-align: center;
-    line-height: 40px;
+    line-height: 35px;
     width: 110px;
     cursor: pointer;
 }
@@ -110,10 +110,10 @@
 #order-Carousel .item .item-content .radio-buttons {
     margin-bottom: 20px;
 }
-#order-Carousel .item .item-content .my-button{ 
+#order-Carousel .item .item-content .my-button { 
     margin-top: 25px;
 }
-#order-Carousel .item .item-content .includingFluel{ 
+#order-Carousel .item .item-content .includingFluel { 
     display: none;
 }
 

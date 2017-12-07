@@ -1,0 +1,72 @@
+.content-reservation input {
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 3px;
+    color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+    line-height: 35px;
+    width: 100%;
+}
+.content-reservation .reservation-button {
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+.content-reservation .reservation-parts {
+    height: 550px;
+}
+.content-reservation .left-content {
+    height: 100%;
+    padding-top: 50px;
+    padding-bottom: 0;
+    border-right: 2px solid #FAF5E6;
+}
+.content-reservation .left-content .line {
+    margin-top: 4px;
+}
+.content-reservation .center-content {
+    padding-top: 50px;
+    height: 100%;
+}
+.content-reservation .right-content {
+    padding-top: 50px;
+    height: 100%;
+    border-left: 2px solid #FAF5E6;
+}
+
+.content-reservation .time-table {
+    padding: 0;
+}
+.content-reservation .time-table:nth-child(1) {
+    padding-right: 2px;
+}
+.content-reservation .time-table:nth-child(2) {
+    padding-left: 2px;
+}
+.content-reservation .time-tables {
+    padding: 0;
+}
+.content-reservation .time-table ul {
+    border: 2px solid #DEC483;
+    border-radius: 3px;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+    list-style-type: none;
+    color: black;
+}
+.content-reservation .time-table ul li{
+    text-align: center;
+}
+.content-reservation .time-table ul li.selected{
+    color: black;
+    background: #DEC483;
+}
+.content-reservation .time-table ul li:hover{
+    color: black;
+    cursor: pointer;
+}
+.content-reservation .time-table ul li.reservation{
+    color: #c9c7c7!important;
+    cursor: default!important;
+}

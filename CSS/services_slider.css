@@ -85,7 +85,7 @@
         padding-bottom: 0;
     }
     #service-Carousel .carousel-inner {
-        height: 710px;
+        height: 800px;
     }
 }
 @media (max-width: 767px) {
@@ -94,7 +94,7 @@
         padding-right: 50px;
     }
     #service-Carousel .carousel-inner {
-        height: 800px;
+        height: 820px;
     }
     #service-Carousel .slide-button {
         width: 50px;
@@ -109,7 +109,7 @@
 }
 @media (max-width: 650px) {
     #service-Carousel .carousel-inner {
-        height: 1000px;
+        height: 1040px;
     }
 }
 @media (max-width: 500px) {

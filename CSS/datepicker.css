@@ -43,8 +43,8 @@
     line-height: 30px;
     border-radius: 50%;
     opacity: 0.5;
-    color: white;
-    background: black;
+    color: black;
+    background: #DEC483;
 }
 
 .datepicker-inline .datepicker-days td.active {
@@ -57,8 +57,8 @@
     line-height: 30px;
     border-radius: 50%;
     opacity: 0.5;
-    color: white;
-    background: black;
+    color: black;
+    background: #DEC483;
 }
 
 .datepicker-inline .datepicker-days td.today {

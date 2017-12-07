@@ -23,6 +23,7 @@
         <link rel="stylesheet" href="CSS/order_slider.css"/>
         <link rel="stylesheet" href="CSS/datepicker.css"/>
         <link rel="stylesheet" href="CSS/contact.css"/>
+        <link rel="stylesheet" href="CSS/reservation.css"/>
         <!-- JS -->
         <script src="JS/scripts.js"></script>
         <script src="JS/order.js"></script>
@@ -182,7 +183,7 @@
                                             o pronájmu. Výše kauce je uvedena na
                                             kartě vozu.
                                         </li>
-                                        <li>¨
+                                        <li>
                                             Auto předáváme nájemci s plnou nádrží,
                                             s plnou nádrží jej nájemce vrací.
                                         </li>
@@ -332,8 +333,8 @@
                                             <p>Kauce 50.000 Kč</p>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 slevomat">
-                                            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 text-center">
+                                            <div class="col-xs-0 col-sm-0 col-md-0 col-lg-2"></div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 text-center">
                                                 <div class="slevomat-text">
                                                     <span>Zážitky jízdy kupujte se slevou 62% na Slevomatu:</span>
                                                 </div>
@@ -341,7 +342,7 @@
                                                     <div class="slevomat-button">KOUPIT <span class="glyphicon glyphicon-play"></span></div>
                                                 </div>
                                             </div>
-                                            <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                                            <div class="col-xs-0 col-sm-0 col-md-0 col-lg-2"></div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 radio-buttons">
@@ -356,10 +357,10 @@
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item enjoyElement">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>Zážitková jízda:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <select id="order-enjoy">
                                                         <option value="1">Půlhodina</option>
                                                         <option value="2">Hodina</option>
@@ -369,10 +370,10 @@
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item normalElement">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>Doba pronájmu:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <select id="order-time">
                                                         <option value="1">12 Hodin</option>
                                                         <option value="2">1 Den</option>
@@ -387,10 +388,10 @@
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>Přistavení vozu:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <select id="order-delivery">
                                                         <option value="1">Brno</option>
                                                         <option value="2">Olomouc</option>
@@ -401,30 +402,30 @@
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item street">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>Ulice a č.p.:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <input id="order-street" type="text"/>
                                                 </div>
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item city">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>Město:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <input id="order-city" type="text"/>
                                                 </div>
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item psc">
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <span>PSČ:</span>
                                                 </div>
-                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <input id="order-psc" type="text"/>
                                                 </div>
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
@@ -456,62 +457,62 @@
                         <div class="item">
                             <div class="item-content">
                                 <div class="content">
-                                    <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
-                                    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4 form">
+                                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 form">
                                         <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold big">Údaje o zákazníkovi</span>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Jméno a Příjmení:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-name" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Ulice a č.p.:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-street" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Město:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-city" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>PSČ:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-psc" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>E-Mail:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-email" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Telefon:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <input id="order-customer-phone" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Metoda platby:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                                 <select id="order-customer-pay-method">
                                                     <option value="Bankovním převodem">Bankovním převodem</option>
                                                     <option value="Dobírka">Dobírka</option>
@@ -520,20 +521,24 @@
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 order-overview">
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                                                <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2"></div>
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
                                                     <input id="order-reservation-now" type="checkbox" value="FALSE"/>
                                                 </div>
-                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
                                                     <label for="order-reservation-now">Chci rezervovat termín ihned</label>
                                                 </div>
+                                                <div class="col-xs-0 col-sm-3 col-md-3 col-lg-3"></div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                                                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 checkboxInput">
+                                                <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2"></div>
+                                                <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 checkboxInput">
                                                     <input id="order-agree" name="name" type="checkbox"value="FALSE" />
                                                 </div>
-                                                <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                                                    <label for="orderAgree">Souhlasím s Obchodními podmínkami</label>
+                                                <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                                                    <label for="order-agree">Souhlasím s Obchodními podmínkami</label>
                                                 </div>
+                                                <div class="col-xs-0 col-sm-2 col-md-2 col-lg-2"></div>
                                             </div>
                                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                                                 <!-- right controls -->
@@ -543,7 +548,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-0 col-sm-2 col-md-3 col-lg-4"></div>
+                                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
                                 </div>
                                 <!-- left controls -->
                                 <div class="slide-button left" href="#order-Carousel" data-slide="prev">
@@ -639,28 +644,49 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 reservation-parts">
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 left-content">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bottom-padding bold">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line text-center bottom-padding bold">
                                 <span>Vložte kód</span>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
                                 <input type="text"/>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bottom-padding">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bottom-padding">
                                 <div class="my-button">OVĚŘIT</div>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bold">
                                 <span>Ford Mustang GT</span>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold bottom-padding">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bold bottom-padding">
                                 <span>Zážitková jízda - 30 minut</span>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
                                 <span>Jméno:</span>
                                 <span>Martin Swyněě Meravá</span>
                             </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
                                 <span>Místo:</span>
-                                <span>Olomouc, OC City</span>
+                                <span>Nevybráno</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
+                                <span>Datum:</span>
+                                <span>Nevybráno</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bottom-padding">
+                                <span>Čas:</span>
+                                <span>Nevybráno</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bold bottom-padding">
+                                <span>Vyberte si nástupní místo</span>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
+                                <div class="my-button">BRNO</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
+                                <div class="my-button">OLOMOUC</div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
+                                <div class="my-button">OSTRAVA</div>
                             </div>
                         </div>
                     </div>
@@ -669,7 +695,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 right-content">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 time-tables">
+                            <div id="reservation-time" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 time-tables bottom-padding">
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 time-table">
                                     <ul>
                                         <li id="1">8:00 - 8:30</li>
@@ -703,6 +729,15 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
+                                <span>Olomouc OC city</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
+                                <span>15.3.2018</span>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
+                                <span>11:30 - 12:00</span>
+                            </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 reservation-button">
                                 <div class="my-button">REZERVOVAT</div>
                             </div>
@@ -713,9 +748,10 @@
         </div>
         <div class="background-contact">
             <div class="content-contact">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
-                    <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 contact-text">
+                <div class="left-side"></div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 big-bottom-padding">
+                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 contact-text">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contact-main-text">
                             <span>Kontaktní údaje</span>
                         </div>
@@ -738,11 +774,11 @@
                             <a href="www.facebook.com/topspeedbrno">www.facebook.com/topspeedbrno</a>
                         </div>
                     </div>
-                    <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
+                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
-                    <div class="col-xs-10 col-sm-8 col-md-6 col-lg-6 contact-form">
+                    <div class="col-xs-0 col-sm-1 col-md-2 col-lg-3"></div>
+                    <div class="col-xs-12 col-sm-10 col-md-9 col-lg-7 contact-form">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 contact-main-text">
                             <span>Kontaktujte nás</span>
                         </div>
@@ -768,7 +804,7 @@
                             <div class="my-button">ODESLAT</div>
                         </div>
                     </div>
-                    <div class="col-xs-1 col-sm-2 col-md-3 col-lg-3"></div>
+                    <div class="col-xs-0 col-sm-1 col-md-1 col-lg-2"></div>
                 </div>
             </div>
         </div>
@@ -777,7 +813,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></div>
                         <div class="col-xs-0 col-sm-10 col-md-10 col-lg-10 end-line">
-                            <span>Copyright: @ 2017 Oldřich Ballák, web: Martin Meravý</span>
+                            <span>Copyright: © 2017 Oldřich Ballák, web: Martin Meravý</span>
                         </div>
                         <div class="col-xs-0 col-sm-1 col-md-1 col-lg-1"></div>
                     </div>

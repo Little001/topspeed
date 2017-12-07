@@ -3,17 +3,18 @@
     background-image: url('../Images/mustang.png');
     background-repeat: no-repeat;
     background-position: center; 
-    background-size: 104%;
+    background-size: cover;
     width: 100%;
 }
 .content-home {
     max-width: 1024px;   
     margin: 0 auto;  
-    min-height: 830px;
+    min-height: 780px;
 }
 .background-home .news {
     border: 2px solid white;
     border-radius: 6px;
+    background: rgba(0,0,0,0.6);
     width: 420px;
     line-height: 90px;
     position: absolute; 
@@ -119,10 +120,7 @@
 
 /*RESERVATION*/
 .background-reservation {
-    background-image: url('../Images/reservation_background.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: white;
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -137,72 +135,6 @@
     font-size: 15px;
     margin: 0 auto;
     max-width: 1600px;
-}
-.content-reservation input {
-    border: 1px solid black;
-    border-radius: 3px;
-    line-height: 40px;
-    width: 100%;
-}
-.content-reservation .reservation-button {
-    padding-top: 10px;
-    padding-bottom: 0;
-}
-.content-reservation .reservation-parts {
-    height: 550px;
-}
-.content-reservation .left-content {
-    background: #F0E3BC;
-    height: 100%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    padding-top: 50px;
-    padding-bottom: 0;
-}
-.content-reservation .center-content {
-    padding-top: 50px;
-    background: #D4B568;
-    height: 100%;
-}
-.content-reservation .right-content {
-    padding-top: 50px;
-    background: #2B1D05;
-    height: 100%;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-}
-
-.content-reservation .time-table {
-    padding: 0;
-}
-.content-reservation .time-table:nth-child(1) {
-    padding-right: 2px;
-}
-.content-reservation .time-table:nth-child(2) {
-    padding-left: 2px;
-}
-.content-reservation .time-tables {
-    padding: 0;
-}
-.content-reservation .time-table ul {
-    border: 2px solid #DEC483;
-    background: #D4B568;
-    border-radius: 3px;
-    padding: 0;
-    width: 100%;
-    margin: 0;
-    list-style-type: none;
-    color: white;
-}
-.content-reservation .time-table ul li{
-    text-align: center;
-}
-.content-reservation .time-table ul li:hover{
-    color: black;
-    cursor: pointer;
-}
-.content-reservation .time-table ul li.reservation{
-    background: red;
 }
 
 /*CONTACT*/
@@ -236,6 +168,8 @@
     padding-bottom: 5px;
     overflow: hidden;
     width: 100%;
+    text-align: center;
+    color: #C6A759;
     margin: 0 auto;
     max-width: 1600px;
 }
