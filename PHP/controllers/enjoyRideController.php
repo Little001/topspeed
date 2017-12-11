@@ -6,13 +6,18 @@ require_once('PHP/enums.php');
 class EnjoyRideController {
     public $errors = "";
     private $EnjoyRideObject;
+    public $databaseQuery;
 
     public function EnjoyRideController($POST) {
         $this->EnjoyRideObject = new EnjoyRide();
-        $databaseQuery = new DataBaseQuery();
+        $this->databaseQuery = new DataBaseQuery();
         if ($this->checkData($POST)) {
-            if ($databaseQuery->insertEnjoyRide($this->EnjoyRideObject)) {
-                $this->sendEmail();
+            if ($this->databaseQuery->insertEnjoyRide($this->EnjoyRideObject)) {
+                if(!$this->sendEmail()) {
+                    $this->errors .= "send email ERROR";
+                }
+            } else {
+                $this->errors .= "insert enjoy ride";
             }
         } else {
             echo "fail data" . $this->errors;
@@ -183,14 +188,14 @@ class EnjoyRideController {
     private function sendEmail() {
         $to = $this->EnjoyRideObject->customerEmail;
         $subject = "Objednávka přijata";
-        $message = "Objednávka přijata";
+        $message = $this->generateMessage($this->databaseQuery->getCode());
         $headers = "from: info@topspeedbrno.cz \n";
         $headers .= "X-mailer: phpWebmail \n";
         
         if (mail($to, $subject, $message, $headers)) {
-            echo "OK - mail odeslán";
         } else {
             echo "CHYBA MAIL - odeslání se nepovedlo";
+            return false;
         }
 
         $to = "info@topspeedbrno.cz";
@@ -200,10 +205,18 @@ class EnjoyRideController {
         $headers .= "X-mailer: phpWebmail \n";
         
         if (mail($to, $subject, $message, $headers)) {
-            echo "OK - mail odeslán";
         } else {
             echo "CHYBA MAIL - odeslání se nepovedlo";
+            return false;
         }
+
+        return true;
+    }
+
+    private function generateMessage($code) {
+        $message = "Objednávka přijata \n";
+        $message .= "Byl vám vygenerován kód:" .$code; 
+        return $message;
     }
 }
 ?>

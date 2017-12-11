@@ -6,13 +6,18 @@ require_once('PHP/enums.php');
 class HireRideController {
     public $errors = "";
     private $HireRideObject;
+    private $databaseQuery;
 
     public function HireRideController($POST) {
         $this->HireRideObject = new HireRide();
-        $databaseQuery = new DataBaseQuery();
+        $this->databaseQuery = new DataBaseQuery();
         if ($this->checkData($POST)) {
-            if ($databaseQuery->insertHireRide($this->HireRideObject)) {
-                $this->sendEmail();
+            if ($this->databaseQuery->insertHireRide($this->HireRideObject)) {
+                if (!$this->sendEmail()) {
+                    $this->errors .= "send email ERROR";
+                }
+            } else {
+                $this->errors .= "insert hire ride";
             }
         } else {
             echo "fail data" . $this->errors;
@@ -201,14 +206,14 @@ class HireRideController {
     private function sendEmail() {
         $to = $this->HireRideObject->customerEmail;
         $subject = "Objednávka přijata";
-        $message = "Objednávka přijata";
+        $message = $this->generateMessage($this->databaseQuery->getCode());
         $headers = "from: info@topspeedbrno.cz \n";
         $headers .= "X-mailer: phpWebmail \n";
         
         if (mail($to, $subject, $message, $headers)) {
-            echo "OK - mail odeslán";
         } else {
             echo "CHYBA MAIL - odeslání se nepovedlo";
+            return false;
         }
 
         $to = "info@topspeedbrno.cz";
@@ -218,10 +223,18 @@ class HireRideController {
         $headers .= "X-mailer: phpWebmail \n";
         
         if (mail($to, $subject, $message, $headers)) {
-            echo "OK - mail odeslán";
         } else {
             echo "CHYBA MAIL - odeslání se nepovedlo";
+            return false;
         }
+
+        return true;
+    }
+
+    private function generateMessage($code) {
+        $message = "Objednávka přijata \n";
+        $message .= "Byl vám vygenerován kód:" .$code; 
+        return $message;
     }
 }
 ?>

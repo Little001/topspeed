@@ -1,7 +1,6 @@
 <?php
 require_once('PHP/controllers/hireRideController.php');
 require_once('PHP/controllers/enjoyRideController.php');
-header('Content-Type: application/json');
 $apiArgArray = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $returnObject = (object) array();
 $route = request_path();
@@ -21,7 +20,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo "OK";
+                echo $object->databaseQuery->getCode();
+                header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;
         case "hire":
@@ -29,7 +29,8 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo "OK";
+                echo $object->databaseQuery->getCode();
+                header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;
         default:

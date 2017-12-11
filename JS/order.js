@@ -30,9 +30,9 @@ $( document ).ready(function() {
 
     function getPayMethod(payMethod) {
         switch(payMethod) {
-            case "1":
+            case 1:
                 return "Bankovním převodem";
-            case "2": 
+            case 2: 
                 return "Dobírka";
         }
     }
@@ -50,29 +50,12 @@ $( document ).ready(function() {
     });
 
     $("#payOrder").click(function () {
+        console.log(orderObject);
         $(".loaderWrapper").show();
         if (orderMethod == "normal") {
-            $.post("api.php/hire", orderObject)
-            .done(function( data ) {
-                console.log(data);
-                $(".loaderWrapper").hide();
-                $("#successModal").modal();
-            }).fail(function(error) {
-                console.log(error);
-                $(".loaderWrapper").hide();
-                $("#successModal1").modal();
-            })
+            post("api.php/hire", orderObject, succesPostOrder, errorPostOrder);
         } else if (orderMethod == "enjoy") {
-            $.post("api.php/enjoy", orderObject)
-            .done(function( data ) {
-                console.log(data);
-                $(".loaderWrapper").hide();
-                $("#successModal").modal();
-            }).fail(function(error) {
-                console.log(error);
-                $(".loaderWrapper").hide();
-                $("#successModal1").modal();
-            })
+            post("api.php/enjoy", orderObject, succesPostOrder, errorPostOrder);
         }
     });
 
@@ -98,10 +81,14 @@ $( document ).ready(function() {
     $(".drive-method").change(function () {
         if($("input[type='radio'].drive-method").is(':checked')) {
             var radioMethod = $("input[type='radio'].drive-method:checked").val();
-    
+            orderObject.payMethod = Number($("#order-customer-pay-method").val());
+            orderObject.deliveryMethod = Number($("#delivery-method").val());
+            orderObject.delivery = Number($("#order-delivery").val());
+
             switch(radioMethod) {
                 case "enjoy":
                     orderMethod = "enjoy";
+                    orderObject.duration = Number($("#order-enjoy").val());
                     $(".enjoyElement").show();
                     $(".normalElement").hide();
                     $(".form-item.street").hide();
@@ -112,6 +99,7 @@ $( document ).ready(function() {
                     break;
                 case "normal":
                     orderMethod = "normal";
+                    orderObject.duration = Number($("#order-time").val());
                     $(".enjoyElement").hide();
                     $(".normalElement").show();
                     $(".form-item.street").show();
@@ -129,11 +117,11 @@ $( document ).ready(function() {
         var orderEnjoy = $("#order-enjoy");
 
         switch(orderEnjoy.val()) {
-            case "1":
+            case "8":
                 currentPrice = HALF_HOUR_PRICE;
                 orderObject.duration = 8;
                 break;
-            case "2":
+            case "9":
                 currentPrice = HOUR_PRICE;
                 orderObject.duration = 9;
                 break;
@@ -299,11 +287,74 @@ $( document ).ready(function() {
             customerPhone.addClass("error");
         }
         orderObject.customerPhone = customerPhone.val();
-        orderObject.payMethod = $("#order-customer-pay-method").val();
+        orderObject.payMethod = Number($("#order-customer-pay-method").val());
 
         return isValid;
     }
 
+    function post(url, data, success, error) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: success,
+            error: error
+        });
+    }
+
+    function succesPostOrder(data) {
+        console.log(data);
+        $(".loaderWrapper").hide();
+        $(".reservation_code").text(data);
+        clearOrderDataAndInputs();
+        $("#successModal").modal();
+    }
+
+    function errorPostOrder(error) {
+        console.log(error);
+        $(".loaderWrapper").hide();
+        $("#failModal").modal();
+    }
+
+    function clearOrderDataAndInputs() {
+        orderObject.street = "";
+        orderObject.city = "";
+        orderObject.psc = 0;
+        orderObject.customerName = "";
+        orderObject.customerStreet = "";
+        orderObject.customerCity = "";
+        orderObject.customerPsc = "";
+        orderObject.customerEmail = "";
+        orderObject.customerPhone = "";
+        orderObject.payMethod = 1;
+        orderObject.duration = 1;
+        orderObject.delivery = 1;
+        orderObject.deliveryMethod = 1;
+
+        $("#order-street").val("");
+        $("#order-city").val("");
+        $("#order-psc").val("");
+
+        $("#order-customer-name").val("");
+        $("#order-customer-street").val("");
+        $("#order-customer-city").val("");
+        $("#order-customer-psc").val("");
+        $("#order-customer-email").val("");
+        $("#order-customer-phone").val("");
+
+        $("#order-customer-pay-method").val("1");
+        $("#delivery-method").val("1");
+        $("#order-delivery").val("1");
+        $("#order-enjoy").val("8");
+        $("#order-time").val("1");
+
+        $( "#order-reservation-now" ).prop( "checked", false );
+        $( "#order-agree" ).prop( "checked", false );
+
+        $("#order-Carousel .item.active").removeClass("active");
+        $("#order-Carousel .item").first().addClass("active");
+    }
+    
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);

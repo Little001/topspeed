@@ -2,6 +2,7 @@
 
 class DataBaseQuery {
     private $conn;
+    public $code = "";
 
     public function DataBaseQuery() {
         $this->createConnection();
@@ -27,10 +28,9 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->deliveryMethod .")";
    
         if ($this->conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-            return true;
+            return($this->generateCode($this->conn->insert_id));
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
+            echo "New hire ride Error: " . $sql . "<br>" . $this->conn->error;
             return false;
         }
     }
@@ -52,10 +52,28 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->deliveryMethod .")";
    
         if ($this->conn->query($sql) === TRUE) {
-            echo "New record created successfully";
+            return($this->generateCode($this->conn->insert_id));
+        } else {
+            echo "New enjoy ride Error: " . $sql . "<br>" . $this->conn->error;
+            return false;
+        }
+    }
+
+    public function getCode() {
+        return $this->code;
+    }
+
+    private function generateCode($id) {
+        $this->code = hash('crc32', 'id='.$id);
+        $sql = "INSERT INTO codes";
+        $sql .= " (code)";
+        $sql .= "VALUES ";
+        $sql .= "('" . $this->code ."')";
+   
+        if ($this->conn->query($sql) === TRUE) {
             return true;
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
+            echo "Generate Code Error: " . $sql . "<br>" . $this->conn->error;
             return false;
         }
     }

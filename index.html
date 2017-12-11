@@ -326,7 +326,7 @@
                         <div class="item active">
                             <div class="item-content">
                                 <div class='hidden-xs hidden-sm col-md-2 col-lg-2'></div>
-                                <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8'>
+                                <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8 orderCenteredContent'>
                                     <div class="content">
                                         <div class="main-text">
                                             <span class="bold big">Ford Mustang GT 5.0</span>
@@ -362,8 +362,8 @@
                                                 </div>
                                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
                                                     <select id="order-enjoy">
-                                                        <option value="1">Půlhodina</option>
-                                                        <option value="2">Hodina</option>
+                                                        <option value="8">Půlhodina</option>
+                                                        <option value="9">Hodina</option>
                                                     </select>
                                                 </div>
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
@@ -470,8 +470,8 @@
                         <div class="item">
                             <div class="item-content">
                                 <div class="content">
-                                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
-                                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 form">
+                                    <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
+                                    <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8 form orderCenteredContent">
                                         <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold big">Údaje o zákazníkovi</span>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -502,7 +502,7 @@
                                                 <span>PSČ:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                <input id="order-customer-psc" type="number" type="text"/>
+                                                <input id="order-customer-psc" type="number" />
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -518,7 +518,7 @@
                                                 <span>Telefon:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                <input id="order-customer-phone" type="text"/>
+                                                <input id="order-customer-phone" type="number"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -561,7 +561,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
+                                    <div class="col-xs-1 col-sm-1 col-md-2 col-lg-2"></div>
                                 </div>
                                 <!-- left controls -->
                                 <div class="slide-button left" href="#order-Carousel" data-slide="prev">
@@ -573,62 +573,62 @@
                         <div class="item">
                             <div class="item-content">
                                 <div class="content">
-                                    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-4"></div>
-                                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 form">
+                                    <div class="col-xs-1 col-sm-3 col-md-3 col-lg-4"></div>
+                                    <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 form orderCenteredContent">
                                         <span class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bold big">Rekapitulace</span>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Jméno a Příjmení:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-name"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 all-bold form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Ulice a č.p.:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-street"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Město:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-city"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>PSČ:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-psc"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>E-Mail:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-email"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Telefon:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-phone"></span>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span>Metoda platby:</span>
                                             </div>
-                                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
                                                 <span id="overview-pay-method"></span>
                                             </div>
                                         </div>
@@ -639,7 +639,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-xs-0 col-sm-3 col-md-3 col-lg-4"></div>
+                                    <div class="col-xs-1 col-sm-3 col-md-3 col-lg-4"></div>
                                 </div>
                                 <!-- left controls -->
                                 <div class="slide-button left" href="#order-Carousel" data-slide="prev">
@@ -846,6 +846,7 @@
                 </div>
                 <div class="modal-body">
                 <p>Objednávka byla odeslána ke zpracování.</p>
+                <p>Vás vygenerováný kód pro rezervace je: </p><span class="reservation_code"></span>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
@@ -853,7 +854,7 @@
             </div>
             </div>
         </div>
-        <div class="modal fade" id="successModal1" role="dialog">
+        <div class="modal fade" id="failModal" role="dialog">
             <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -862,7 +863,7 @@
                 <h4 class="modal-title">Objednávka</h4>
                 </div>
                 <div class="modal-body">
-                <p>Objednávka byla odeslána ke zpracování.</p>
+                <p>Objednávka nebyla přijata, zkontrolujte zadné údaje.</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>

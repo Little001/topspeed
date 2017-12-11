@@ -7,7 +7,7 @@
     padding-top: 50px;
     padding-bottom: 50px;
     overflow: hidden;
-    height: 520px;
+    height: 530px;
 }
 #order-Carousel .slide-button {
     top: 50%;
@@ -46,6 +46,13 @@
 #order-Carousel .item .item-content .content {
     width: 100%;
     overflow: hidden;
+}
+
+#order-Carousel .item .item-content .orderCenteredContent {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 
 #order-Carousel .item .item-content .content .main-text {
@@ -142,7 +149,7 @@
 }
 @media (max-width: 767px) {
     #order-Carousel .item .item-content {
-        height: 670px;
+        height: 720px;
     }
     #order-Carousel .slide-button {
         width: 50px;
