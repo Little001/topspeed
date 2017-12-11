@@ -28,6 +28,15 @@ $( document ).ready(function() {
 
     var orderMethod = "normal";
 
+    function getPayMethod(payMethod) {
+        switch(payMethod) {
+            case "1":
+                return "Bankovním převodem";
+            case "2": 
+                return "Dobírka";
+        }
+    }
+
     $("#total-price").text(currentPrice);
     
     $("#borow-button").click(function () {
@@ -41,20 +50,28 @@ $( document ).ready(function() {
     });
 
     $("#payOrder").click(function () {
-        return;
+        $(".loaderWrapper").show();
         if (orderMethod == "normal") {
             $.post("api.php/hire", orderObject)
             .done(function( data ) {
-                $("#succesModal").modal();
+                console.log(data);
+                $(".loaderWrapper").hide();
+                $("#successModal").modal();
             }).fail(function(error) {
-                $("#failModal").modal();
+                console.log(error);
+                $(".loaderWrapper").hide();
+                $("#successModal1").modal();
             })
         } else if (orderMethod == "enjoy") {
             $.post("api.php/enjoy", orderObject)
             .done(function( data ) {
-                $("#succesModal").modal();
+                console.log(data);
+                $(".loaderWrapper").hide();
+                $("#successModal").modal();
             }).fail(function(error) {
-                $("#failModal").modal();
+                console.log(error);
+                $(".loaderWrapper").hide();
+                $("#successModal1").modal();
             })
         }
     });
@@ -74,7 +91,7 @@ $( document ).ready(function() {
         $("#overview-psc").text(orderObject.customerPsc);
         $("#overview-email").text(orderObject.customerEmail);
         $("#overview-phone").text(orderObject.customerPhone);
-        $("#overview-pay-method").text(orderObject.payMethod);
+        $("#overview-pay-method").text(getPayMethod(orderObject.payMethod));
     });
 
     /*RADIO BUTTON METHOD*/

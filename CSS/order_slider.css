@@ -92,6 +92,22 @@
     padding-right: 3px;
     width: 100%;
 }
+
+#order-Carousel .item .item-content .content .form input[type=number]::-webkit-inner-spin-button, 
+#order-Carousel .item .item-content .content .form input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+#order-Carousel .item .item-content .content .form input[type="number"] {
+    border: 2px solid black;
+    border-radius: 3px;
+    color: black;
+    padding-left: 3px;
+    padding-right: 3px;
+    width: 100%;
+}
+
 #order-Carousel .item .item-content .content .form select {
     border: 2px solid black;
     color: black;

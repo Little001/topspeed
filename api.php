@@ -20,12 +20,16 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $object = new EnjoyRideController($_POST);
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
+            } else {
+                echo "OK";
             }
             break;
         case "hire":
             $object = new HireRideController($_POST);
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
+            } else {
+                echo "OK";
             }
             break;
         default:

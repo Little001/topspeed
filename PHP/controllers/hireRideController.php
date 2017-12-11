@@ -199,20 +199,29 @@ class HireRideController {
     }
 
     private function sendEmail() {
-        
-        $to = $this->HireRideController->customerEmail;
+        $to = $this->HireRideObject->customerEmail;
         $subject = "Objednávka přijata";
-        $txt = "Objednávka přijata";
-        $headers = "From: info@topspeedbrno.cz";
+        $message = "Objednávka přijata";
+        $headers = "from: info@topspeedbrno.cz \n";
+        $headers .= "X-mailer: phpWebmail \n";
         
-        mail($to,$subject,$txt,$headers);
+        if (mail($to, $subject, $message, $headers)) {
+            echo "OK - mail odeslán";
+        } else {
+            echo "CHYBA MAIL - odeslání se nepovedlo";
+        }
 
         $to = "info@topspeedbrno.cz";
-        $subject = "Objednávka přijata";
-        $txt = "Objednávka přijata";
-        $headers = "From: info@topspeedbrno.cz";
+        $subject = "Objednávka pro" .$this->HireRideObject->customerName;
+        $message = "Objednávka text...";
+        $headers = "from: info@topspeedbrno.cz \n";
+        $headers .= "X-mailer: phpWebmail \n";
         
-        mail($to,$subject,$txt,$headers);
+        if (mail($to, $subject, $message, $headers)) {
+            echo "OK - mail odeslán";
+        } else {
+            echo "CHYBA MAIL - odeslání se nepovedlo";
+        }
     }
 }
 ?>

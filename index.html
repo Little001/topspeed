@@ -439,7 +439,7 @@
                                                     <span>PSČ:</span>
                                                 </div>
                                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                                    <input id="order-psc" type="text"/>
+                                                    <input id="order-psc" type="number" />
                                                 </div>
                                                 <div class="col-xs-0 col-sm-0 col-md-2 col-lg-2"></div>
                                             </div>
@@ -502,7 +502,7 @@
                                                 <span>PSČ:</span>
                                             </div>
                                             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                                <input id="order-customer-psc" type="text"/>
+                                                <input id="order-customer-psc" type="number" type="text"/>
                                             </div>
                                         </div>
                                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-item">
@@ -833,7 +833,10 @@
                 </div>
         </footer>
         <!-- Modals -->
-        <div class="modal fade" id="succesModal" role="dialog">
+        <div class="loaderWrapper">
+            <div class="loader"></div>
+        </div>
+        <div class="modal fade" id="successModal" role="dialog">
             <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -850,7 +853,7 @@
             </div>
             </div>
         </div>
-        <div class="modal fade" id="failModal" role="dialog">
+        <div class="modal fade" id="successModal1" role="dialog">
             <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -859,7 +862,7 @@
                 <h4 class="modal-title">Objednávka</h4>
                 </div>
                 <div class="modal-body">
-                <p>Došlo k chybě, zkontrolujte zadané údaje.</p>
+                <p>Objednávka byla odeslána ke zpracování.</p>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>

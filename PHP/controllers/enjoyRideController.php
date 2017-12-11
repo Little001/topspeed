@@ -181,20 +181,29 @@ class EnjoyRideController {
     }
 
     private function sendEmail() {
-
         $to = $this->EnjoyRideObject->customerEmail;
         $subject = "Objednávka přijata";
-        $txt = "Objednávka přijata";
-        $headers = "From: info@topspeedbrno.cz";
+        $message = "Objednávka přijata";
+        $headers = "from: info@topspeedbrno.cz \n";
+        $headers .= "X-mailer: phpWebmail \n";
         
-        mail($to,$subject,$txt,$headers);
+        if (mail($to, $subject, $message, $headers)) {
+            echo "OK - mail odeslán";
+        } else {
+            echo "CHYBA MAIL - odeslání se nepovedlo";
+        }
 
         $to = "info@topspeedbrno.cz";
-        $subject = "Objednávka přijata";
-        $txt = "Objednávka přijata";
-        $headers = "From: info@topspeedbrno.cz";
+        $subject = "Objednávka pro" .$this->EnjoyRideObject->customerName;
+        $message = "Objednávka přijata";
+        $headers = "from: info@topspeedbrno.cz \n";
+        $headers .= "X-mailer: phpWebmail \n";
         
-        mail($to,$subject,$txt,$headers);
+        if (mail($to, $subject, $message, $headers)) {
+            echo "OK - mail odeslán";
+        } else {
+            echo "CHYBA MAIL - odeslání se nepovedlo";
+        }
     }
 }
 ?>
