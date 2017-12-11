@@ -11,18 +11,19 @@ $( document ).ready(function() {
         currentPrice = TWELVE_HOURS_PRICE; //default
 
     var orderObject = {
-        street: null,
-        city: null,
-        psc: null,
-        customerName: null,
-        customerStreet: null,
-        customerCity: null,
-        customerPsc: null,
-        customerEmail: null,
-        customerPhone: null,
-        payMethod: "",
+        street: "",
+        city: "",
+        psc: 0,
+        customerName: "",
+        customerStreet: "",
+        customerCity: "",
+        customerPsc: "",
+        customerEmail: "",
+        customerPhone: "",
+        payMethod: 1,
         duration: 1,
-        delivery: 1
+        delivery: 1,
+        deliveryMethod: 1
     };
 
     var orderMethod = "normal";
@@ -37,6 +38,25 @@ $( document ).ready(function() {
             }
         }
         $("#borow-button").closest('.carousel').carousel('next');
+    });
+
+    $("#payOrder").click(function () {
+        return;
+        if (orderMethod == "normal") {
+            $.post("api.php/hire", orderObject)
+            .done(function( data ) {
+                $("#succesModal").modal();
+            }).fail(function(error) {
+                $("#failModal").modal();
+            })
+        } else if (orderMethod == "enjoy") {
+            $.post("api.php/enjoy", orderObject)
+            .done(function( data ) {
+                $("#succesModal").modal();
+            }).fail(function(error) {
+                $("#failModal").modal();
+            })
+        }
     });
 
     //on click to recapitulaiton
@@ -64,7 +84,7 @@ $( document ).ready(function() {
     
             switch(radioMethod) {
                 case "enjoy":
-                    orderMethod = "onjoy";
+                    orderMethod = "enjoy";
                     $(".enjoyElement").show();
                     $(".normalElement").hide();
                     $(".form-item.street").hide();
@@ -94,15 +114,30 @@ $( document ).ready(function() {
         switch(orderEnjoy.val()) {
             case "1":
                 currentPrice = HALF_HOUR_PRICE;
-                orderObject.days = 1;
+                orderObject.duration = 8;
                 break;
             case "2":
                 currentPrice = HOUR_PRICE;
-                orderObject.days = 2;
+                orderObject.duration = 9;
                 break;
         }
         $("#total-price").text(currentPrice);
     });
+    //change delivery method
+    $("#delivery-method").change(function() {
+        var orderTime = $("#delivery-method");
+
+        switch(orderTime.val()) {
+            case "1":
+                orderObject.deliveryMethod = 1;
+                break;
+            case "2":
+                orderObject.deliveryMethod = 2;
+                break;
+        }
+    });
+
+
     //change order time
     $("#order-time").change(function() {
         var orderTime = $("#order-time");
@@ -110,31 +145,31 @@ $( document ).ready(function() {
         switch(orderTime.val()) {
             case "1":
                 currentPrice = TWELVE_HOURS_PRICE;
-                orderObject.days = 1;
+                orderObject.duration = 1;
                 break;
             case "2":
                 currentPrice = ONE_DAY_PRICE;
-                orderObject.days = 2;
+                orderObject.duration = 2;
                 break;
             case "3":
                 currentPrice = TWO_DAY_PRICE;
-                orderObject.days = 3;
+                orderObject.duration = 3;
                 break;
             case "4":
                 currentPrice = THREE_DAY_PRICE;
-                orderObject.days = 4;
+                orderObject.duration = 4;
                 break;
             case "5":
                 currentPrice = FOUR_DAY_PRICE;
-                orderObject.days = 5;
+                orderObject.duration = 5;
                 break;
             case "6":
                 currentPrice = FIVE_DAY_PRICE;
-                orderObject.days = 6;
+                orderObject.duration = 6;
                 break;
             case "7":
                 currentPrice = WEEKEND_PRICE;
-                orderObject.days = 7;
+                orderObject.duration = 7;
                 break;
         }
         $("#total-price").text(currentPrice);
