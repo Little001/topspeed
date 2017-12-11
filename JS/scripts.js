@@ -92,6 +92,55 @@ $( document ).ready(function() {
         return "<i class='glyphicon glyphicon-arrow-right'></i>";
     });
 
+    //send question
+    $("#sendQuestion").click(function () {
+        var name = $("#contactName"),
+            email = $("#contactEmail"),
+            question = $("#contactQuestion"),
+            isValid = true,
+            contactObject = {};
+
+        name.removeClass("error");
+        email.removeClass("error");
+        question.removeClass("error");
+
+        if (!name.val()) {
+            isValid = false;
+            name.addClass("error");
+        }
+        contactObject.name = name.val();
+
+        if (!email.val() || !validateEmail(email.val())) {
+            isValid = false;
+            email.addClass("error");
+        }
+        contactObject.email = email.val();
+
+        if (!question.val()) {
+            isValid = false;
+            question.addClass("error");
+        }
+        contactObject.question = question.val();
+        if (isValid) {
+            $(".loaderWrapper").show();
+            post("api.php/contact", contactObject, function(data) {
+                console.log(data);
+                $(".loaderWrapper").hide();
+                $("#contactModal").modal();
+                name.val("");
+                email.val("");
+                question.val("");
+            }, function (error) {
+                console.log(error);
+                $(".loaderWrapper").hide();
+                $("#contactModal").modal();
+                name.val("");
+                email.val("");
+                question.val("");
+            });
+        }
+    });
+
     function fillCellContent() {
         $('#datepicker table tbody tr td').each(function (item) {
             var value = $(this).html();
@@ -100,6 +149,21 @@ $( document ).ready(function() {
                 return "<div class='cell-content'>"+ value + "</div>";
             });
         })
+    }
+
+    function post(url, data, success, error) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: success,
+            error: error
+        });
+    }
+
+    function validateEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
     }
 });
 
