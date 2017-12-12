@@ -6,8 +6,8 @@ require_once('PHP/controllers/enumsController.php');
 
 class HireRideController {
     public $errors = "";
+    public $databaseQuery;
     private $HireRideObject;
-    private $databaseQuery;
 
     public function HireRideController($POST) {
         $this->HireRideObject = new HireRide();
@@ -163,7 +163,6 @@ class HireRideController {
         $message = "Vážený zákazníku, \n \n";
         $message .= "Vaše objednávka číslo: " . $id . ", na-shopu www.topspeedbrno.cz byla přijata \n"; 
         $message .= "Rekapitulace Vaší objednávky: \n"; 
-        $message .= "Položka \n"; 
         $message .= "Pronájem vozu " . EnumsController::getDurationText($this->HireRideObject->duration) . " "; 
         $message .=  $durationPrice. " Kč \n";
         $message .= "Způsob dopravy: " . EnumsController::getDeliveryMethodText($this->HireRideObject->deliveryMethod) . " "; 
