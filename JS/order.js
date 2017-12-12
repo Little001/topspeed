@@ -118,7 +118,18 @@ $( document ).ready(function() {
 
     //change order-enjoy
     $("#order-enjoy").change(function() {
-        var orderEnjoy = $("#order-enjoy");
+        var orderEnjoy = $("#order-enjoy"),
+            payMethod  = $("#order-customer-pay-method"),
+            payMethodPrice = 0;
+
+        switch(payMethod.val()) {
+            case "1":
+                payMethodPrice = 0;
+                break;
+            case "2":
+                payMethodPrice = SEND_VOUCHER;
+                break;
+        }
 
         switch(orderEnjoy.val()) {
             case "8":
@@ -130,6 +141,7 @@ $( document ).ready(function() {
                 orderObject.duration = 9;
                 break;
         }
+        currentPrice += payMethodPrice;
         $("#total-price").text(currentPrice);
     });
     //change delivery method
@@ -160,7 +172,18 @@ $( document ).ready(function() {
 
     //change order time
     $("#order-time").change(function() {
-        var orderTime = $("#order-time");
+        var orderTime = $("#order-time"),
+            payMethod  = $("#order-customer-pay-method"),
+            payMethodPrice = 0;
+
+        switch(payMethod.val()) {
+            case "1":
+                payMethodPrice = 0;
+                break;
+            case "2":
+                payMethodPrice = SEND_VOUCHER;
+                break;
+        }
 
         switch(orderTime.val()) {
             case "1":
@@ -192,6 +215,7 @@ $( document ).ready(function() {
                 orderObject.duration = 7;
                 break;
         }
+        currentPrice += payMethodPrice;
         $("#total-price").text(currentPrice);
     });
 
