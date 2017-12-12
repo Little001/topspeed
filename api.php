@@ -3,14 +3,24 @@ require_once('PHP/controllers/hireRideController.php');
 require_once('PHP/controllers/enjoyRideController.php');
 require_once('PHP/controllers/contactController.php');
 require_once('PHP/controllers/reservationController.php');
+require_once('PHP/controllers/listReservationController.php');
 $apiArgArray = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $returnObject = (object) array();
 $route = request_path();
 
 switch ($_SERVER['REQUEST_METHOD']) {
   case 'GET':
-    $returnObject = $newobj;
-    $object;
+    switch($route) {
+        case "reservation":
+            $object = new ListReservationController($_GET);
+            if (strlen($object->errors) > 0) {
+                header('HTTP/1.1 400 Bad request', true, 400);
+            } else {
+                echo $object->list;
+                header('HTTP/1.1 200 Bad request', true, 200);
+            }
+            break;
+        }
     break;
   case 'PUT':       
     // Replace entire collection or member
@@ -40,7 +50,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo $object->databaseQuery->getCode();
                 header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;
@@ -49,7 +58,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo $object->databaseQuery->getCode();
                 header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;

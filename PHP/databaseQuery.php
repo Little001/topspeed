@@ -25,6 +25,20 @@ class DataBaseQuery {
         }
     }
 
+    public function getReservation($date) {
+        $sql = "SELECT (date, time) FROM reservation WHERE date='" .$date."'";
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+            // output data of each row
+            /*while($row = $result->fetch_assoc()) {
+                print_r($row);
+            } */
+        } else {
+            //echo "0 results";
+        }
+    }
+
     public function insertHireRide($HireRide) {
         $sql = "INSERT INTO hire_ride";
         $sql .= " (street, city, psc, customerName, customerStreet, customerCity, customerPsc, customerEmail,";
