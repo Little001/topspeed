@@ -8,6 +8,7 @@ $( document ).ready(function() {
         WEEKEND_PRICE = 14999,
         HALF_HOUR_PRICE = 3499,
         HOUR_PRICE = 5999,
+        SEND_VOUCHER = 99,
         currentPrice = TWELVE_HOURS_PRICE; //default
 
     var orderObject = {
@@ -81,6 +82,8 @@ $( document ).ready(function() {
     $(".drive-method").change(function () {
         if($("input[type='radio'].drive-method").is(':checked')) {
             var radioMethod = $("input[type='radio'].drive-method:checked").val();
+            $("#delivery-method").val("1");
+            $("#order-customer-pay-method option:nth-child(2)").attr("disabled", true);
             orderObject.payMethod = Number($("#order-customer-pay-method").val());
             orderObject.deliveryMethod = Number($("#delivery-method").val());
             orderObject.delivery = Number($("#order-delivery").val());
@@ -95,7 +98,7 @@ $( document ).ready(function() {
                     $(".form-item.city").hide();
                     $(".form-item.psc").hide();
                     $("#order-Carousel .item .item-content .includingFluel").show();
-                    $("#total-price").text(HALF_HOUR_PRICE);
+                    currentPrice = HALF_HOUR_PRICE;
                     break;
                 case "normal":
                     orderMethod = "normal";
@@ -106,9 +109,10 @@ $( document ).ready(function() {
                     $(".form-item.city").show();
                     $(".form-item.psc").show();
                     $("#order-Carousel .item .item-content .includingFluel").hide();
-                    $("#total-price").text(TWELVE_HOURS_PRICE);
+                    currentPrice = TWELVE_HOURS_PRICE;
                     break;
             }
+            $("#total-price").text(currentPrice);
         }
     });
 
@@ -130,16 +134,27 @@ $( document ).ready(function() {
     });
     //change delivery method
     $("#delivery-method").change(function() {
-        var orderTime = $("#delivery-method");
+        var orderTime = $("#delivery-method"),
+            payMethod  = $("#order-customer-pay-method");
 
         switch(orderTime.val()) {
             case "1":
                 orderObject.deliveryMethod = 1;
+                orderObject.payMethod = 1;
+                currentPrice -= SEND_VOUCHER;
+                payMethod.val("1");
+                $(payMethod).find("option:nth-child(2)").attr("disabled", true);
                 break;
             case "2":
                 orderObject.deliveryMethod = 2;
+                orderObject.payMethod = 1;
+                currentPrice += SEND_VOUCHER;
+                payMethod.val("1");
+                $(payMethod).find("option").attr("disabled", false);
                 break;
         }
+
+        $("#total-price").text(currentPrice);
     });
 
 

@@ -2,6 +2,7 @@
 require_once('PHP/models/hireRide.php');
 require_once('PHP/databaseQuery.php');
 require_once('PHP/enums.php');
+require_once('PHP/controllers/enumsController.php');
 
 class HireRideController {
     public $errors = "";
@@ -89,7 +90,7 @@ class HireRideController {
             $this->errors .= "payMethod ";
             return false;    
         }
-        if (!$this->getPayMethod($POST["payMethod"])) {
+        if (!EnumsController::getPayMethod($this->HireRideObject, $POST["payMethod"])) {
             $this->errors .= "payMethod enums";
             return false;
         }
@@ -99,7 +100,7 @@ class HireRideController {
             $this->errors .= "duration ";
             return false;    
         }
-        if (!$this->getDuration($POST["duration"])) {
+        if (!EnumsController::getDuration($this->HireRideObject ,$POST["duration"])) {
             $this->errors .= "duration enums";
             return false;
         }
@@ -109,7 +110,7 @@ class HireRideController {
             $this->errors .= "delivery ";
             return false;    
         }
-        if (!$this->getDelivery($POST["delivery"])) {
+        if (!EnumsController::getDelivery($this->HireRideObject ,$POST["delivery"])) {
             $this->errors .= "delivery enums";
             return false;
         }
@@ -119,7 +120,7 @@ class HireRideController {
             $this->errors .= "deliveryMethod ";
             return false;    
         }
-        if (!$this->getDeliveryMethod($POST["deliveryMethod"])) {
+        if (!EnumsController::getDeliveryMethod($this->HireRideObject ,$POST["deliveryMethod"])) {
             $this->errors .= "deliveryMethod enums";
             return false;
         }
@@ -127,86 +128,10 @@ class HireRideController {
         return true;
     }
 
-    private function getPayMethod($payMethod) {
-        switch ($payMethod) {
-            case PayMethod::BankAccount:
-                $this->HireRideObject->payMethod = PayMethod::BankAccount;
-                return true;
-            case PayMethod::CashOnDelivery:
-                $this->HireRideObject->payMethod = PayMethod::CashOnDelivery;
-                return true;
-            default: 
-                return false;
-        }
-    }
-
-    private function getDuration($duration) {
-        switch ($duration) {
-            case Duration::TWELVE_HOURS_PRICE:
-                $this->HireRideObject->duration = Duration::TWELVE_HOURS_PRICE;
-                return true;
-            case Duration::ONE_DAY_PRICE:
-                $this->HireRideObject->duration = Duration::ONE_DAY_PRICE;
-                return true;
-            case Duration::TWO_DAY_PRICE:
-                $this->HireRideObject->duration = Duration::TWO_DAY_PRICE;
-                return true;
-            case Duration::THREE_DAY_PRICE:
-                $this->HireRideObject->duration = Duration::THREE_DAY_PRICE;
-                return true;
-            case Duration::FOUR_DAY_PRICE:
-                $this->HireRideObject->duration = Duration::FOUR_DAY_PRICE;
-                return true;
-            case Duration::FIVE_DAY_PRICE:
-                $this->HireRideObject->duration = Duration::FIVE_DAY_PRICE;
-                return true;
-            case Duration::WEEKEND_PRICE:
-                $this->HireRideObject->duration = Duration::WEEKEND_PRICE;
-                return true;
-            case Duration::HALF_HOUR_PRICE:
-                $this->HireRideObject->duration = Duration::HALF_HOUR_PRICE;
-                return true;
-            case Duration::HOUR_PRICE:
-                $this->HireRideObject->duration = Duration::HOUR_PRICE;
-                return true;
-            default: 
-                return false;
-        }
-    }
-
-    private function getDelivery($delivery) {
-        switch ($delivery) {
-            case Delivery::BRNO:
-                $this->HireRideObject->delivery = Delivery::BRNO;
-                return true;
-            case Delivery::OLOMOUC:
-                $this->HireRideObject->delivery = Delivery::OLOMOUC;
-                return true;
-            case Delivery::OSTRAVA:
-                $this->HireRideObject->delivery = Delivery::OSTRAVA;
-                return true;
-            default: 
-                return false;
-        }
-    }
-
-    private function getDeliveryMethod($deliveryMethod) {
-        switch ($deliveryMethod) {
-            case DeliveryMethod::EMAIL:
-                $this->HireRideObject->deliveryMethod = DeliveryMethod::EMAIL;
-                return true;
-            case DeliveryMethod::VOUCHER:
-                $this->HireRideObject->deliveryMethod = DeliveryMethod::VOUCHER;
-                return true;
-            default: 
-                return false;
-        }
-    }
-
     private function sendEmail() {
         $to = $this->HireRideObject->customerEmail;
         $subject = "Objednávka přijata";
-        $message = $this->generateMessage($this->databaseQuery->getCode());
+        $message = $this->generateMessage($this->databaseQuery->lastID, $this->databaseQuery->getCode());
         $headers = "from: info@topspeedbrno.cz \n";
         $headers .= "X-mailer: phpWebmail \n";
         
@@ -231,9 +156,32 @@ class HireRideController {
         return true;
     }
 
-    private function generateMessage($code) {
-        $message = "Objednávka přijata \n";
-        $message .= "Byl vám vygenerován kód:" .$code; 
+    private function generateMessage($id, $code) {
+        $durationPrice = EnumsController::getDurationPrice($this->HireRideObject->duration);
+        $deliveryMethodPrice = EnumsController::getDeliveryMethodPrice($this->HireRideObject->deliveryMethod);
+        $price = $durationPrice + $deliveryMethodPrice;
+        $message = "Vážený zákazníku, \n \n";
+        $message .= "Vaše objednávka číslo: " . $id . ", na-shopu www.topspeedbrno.cz byla přijata \n"; 
+        $message .= "Rekapitulace Vaší objednávky: \n"; 
+        $message .= "Položka \n"; 
+        $message .= "Pronájem vozu " . EnumsController::getDurationText($this->HireRideObject->duration) . " "; 
+        $message .=  $durationPrice. " Kč \n";
+        $message .= "Způsob dopravy: " . EnumsController::getDeliveryMethodText($this->HireRideObject->deliveryMethod) . " "; 
+        $message .= $deliveryMethodPrice . " Kč \n";
+        $message .= "Celkem " . $price . "Kč \n\n"; 
+        $message .= "Nástupní místo: " . EnumsController::getDeliveryText($this->HireRideObject->delivery) . "\n"; 
+        $message .= "Metoda platby: " . EnumsController::getPayMethodText($this->HireRideObject->payMethod) . "\n\n"; 
+        $message .= "Fakturační adresa: \n";
+        $message .= "Oldřich Ballák \n"; 
+        $message .= "Novosady 557 \n"; 
+        $message .= "Litovel \n"; 
+        $message .= "78401 \n"; 
+        $message .= "olda.ballak@seznam.cz \n";
+        $message .= "735947016 \n\n"; 
+        $message .= "Poznámka k objednávce: \n"; 
+        $message .= "Bankovní spojení: 2101328979/2010 \n\n"; 
+        $message .= "Těšíme se na Vás a přejeme pěkný zbytek dne, \n\n"; 
+        $message .= "Topspeedbrno.cz"; 
         return $message;
     }
 }

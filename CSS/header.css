@@ -1,10 +1,10 @@
 @font-face {
     font-family: myFont;
-    src: url("../Font/Exo-Light.ttf");
+    src: url("../Font/Exo-LightItalic.ttf");
 }
 @font-face {
     font-family: myExtraLightFont;
-    src: url("../Font/Exo-ExtraLight.ttf");
+    src: url("../Font/Exo-ExtraLightItalic.ttf");
 }
 
 .loaderWrapper {

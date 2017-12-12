@@ -3,6 +3,7 @@
 class DataBaseQuery {
     private $conn;
     public $code = "";
+    public $lastId = "";
 
     public function DataBaseQuery() {
         $this->createConnection();
@@ -59,7 +60,8 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->deliveryMethod .")";
    
         if ($this->conn->query($sql) === TRUE) {
-            return($this->generateCode($this->conn->insert_id));
+            $this->lastID = $this->conn->insert_id;
+            return($this->generateCode($this->lastID));
         } else {
             echo "New hire ride Error: " . $sql . "<br>" . $this->conn->error;
             return false;
@@ -83,7 +85,8 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->deliveryMethod .")";
    
         if ($this->conn->query($sql) === TRUE) {
-            return($this->generateCode($this->conn->insert_id));
+            $this->lastID = $this->conn->insert_id;
+            return($this->generateCode($this->lastID));
         } else {
             echo "New enjoy ride Error: " . $sql . "<br>" . $this->conn->error;
             return false;
