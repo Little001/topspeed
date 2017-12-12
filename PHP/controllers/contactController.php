@@ -19,7 +19,9 @@ class ContactController {
     private function sendEmail() {
         $to = "info@topspeedbrno.cz";
         $subject = "Někdo vás kontaktuje";
-        $message = $this->question;
+        $message = "Jméno: " .$this->name ."\n \n";
+        $message .= "Email: " .$this->email ."\n \n";
+        $message .= "Otázka: " .$this->question;
         $headers = "from: info@topspeedbrno.cz \n";
         $headers .= "X-mailer: phpWebmail \n";
         
