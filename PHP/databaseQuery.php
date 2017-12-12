@@ -8,6 +8,23 @@ class DataBaseQuery {
         $this->createConnection();
     }
 
+    public function insertReservation($ReservationObject) {
+        $sql = "INSERT INTO reservation";
+        $sql .= " (code, date, time, email) ";
+        $sql .= "VALUES ";
+        $sql .= "('" . $ReservationObject->code ."', ";
+        $sql .= "'" . $ReservationObject->date ."', ";
+        $sql .= "'" . $ReservationObject->time ."', ";
+        $sql .= "'" . $ReservationObject->email ."')";
+   
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            echo "New reservation Error: " . $sql . "<br>" . $this->conn->error;
+            return false;
+        }
+    }
+
     public function insertHireRide($HireRide) {
         $sql = "INSERT INTO hire_ride";
         $sql .= " (street, city, psc, customerName, customerStreet, customerCity, customerPsc, customerEmail,";

@@ -2,6 +2,7 @@
 require_once('PHP/controllers/hireRideController.php');
 require_once('PHP/controllers/enjoyRideController.php');
 require_once('PHP/controllers/contactController.php');
+require_once('PHP/controllers/reservationController.php');
 $apiArgArray = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $returnObject = (object) array();
 $route = request_path();
@@ -27,6 +28,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
             break;
         case "hire":
             $object = new HireRideController($_POST);
+            if (strlen($object->errors) > 0) {
+                header('HTTP/1.1 400 Bad request', true, 400);
+            } else {
+                echo $object->databaseQuery->getCode();
+                header('HTTP/1.1 200 Bad request', true, 200);
+            }
+            break;
+        case "reservation":
+            $object = new ReservationController($_POST);
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {

@@ -4,6 +4,12 @@ $( document ).ready(function() {
     var isActive = false,
         dayData;
 
+    var reservationObject = {
+        code: "",
+        date: "",
+        time: 0
+    }
+
     //get data
     getDayData();
 
@@ -11,6 +17,7 @@ $( document ).ready(function() {
         $("#reservation-time ul li").removeClass("selected");
         if (!$(this).hasClass("reservation")) {
             $(this).addClass("selected");
+            reservationObject.time = $(this).attr("id");
         }
     })
 
@@ -24,8 +31,8 @@ $( document ).ready(function() {
     $("#datepicker").datepicker().on('changeDate', function() {
         var listElement = $("#reservation-time ul"),
             id,
-            i
-
+            i;
+ 
         listElement.find("li").removeClass("reservation");
         for(i = 0; i < dayData.length; i++) {
             
@@ -85,27 +92,57 @@ $( document ).ready(function() {
                     id="18";
                     break;
                 case "17:00 - 17:30": 
-                    id="1";
+                    id="19";
                     break;
                 case "17:30 - 18:00": 
-                id="1";
+                    id="20";
                     break;
                 case "18:00 - 18:30": 
-                id="1";
+                    id="21";
                     break;
                 case "18:30 - 19:00": 
-                id="1";
+                    id="22";
                     break;
                 case "19:00 - 19:30": 
-                id="1";
+                    id="23";
                     break;
                 case "19:30 - 20:00": 
-                id="1";
+                    id="24";
                     break;
             }
             listElement.find("#"+id).addClass("reservation");
             listElement.find("#"+id).removeClass("selected");
         };
+        reservationObject.time = listElement.find(".selected").attr("id");
+    });
+
+    $("#reservationSubmit").click(function () {
+        var date = new Date($("#datepicker").datepicker("getDate")),
+            day = date.getDate(),
+            month = date.getMonth() + 1,
+            year = date.getFullYear(),
+            reservationCode = $("#reservationCode");
+
+        reservationCode.removeClass("error");
+
+        if (!reservationCode.val()) {
+            reservationCode.addClass("error");
+        }
+        reservationObject.code = reservationCode;
+        if (day && month && year && reservationObject.time != 0) {
+            reservationObject.date = day + "/" + month + "/" + year;
+            console.log("reservation OK");    
+            console.log(reservationObject);   
+            post("api.php/reservation", reservationObject, function(data) {
+                console.log(data);
+            }, function(error) {
+                console.log(error);
+            }) 
+        } else {
+            console.log("reservation FAIL");
+            console.log(reservationObject);    
+        }
+        
     });
 
     function getDayData() {
@@ -119,29 +156,38 @@ $( document ).ready(function() {
     }
 
 
-    //post request
-    function post(route, data, success, error) {
+    function post(url, data, success, error) {
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: data,
             success: success,
-            error: error,
-            contentType: "application/json",
-            dataType: "json",
+            error: error
         });
     }
 
-    //get request
-    function get(route, success, error) {
+    function get(url, data, success, error) {
         $.ajax({
-            type: "GET",
+            type: 'GET',
             url: url,
+            data: data,
             success: success,
-            error: error,
-            contentType: "application/json",
-            dataType: "json",
+            error: error
         });
+    }
+
+    function succesPostOrder(data) {
+        console.log(data);
+        $(".loaderWrapper").hide();
+        $(".reservation_code").text(data);
+        clearOrderDataAndInputs();
+        $("#successModal").modal();
+    }
+
+    function errorPostOrder(error) {
+        console.log(error);
+        $(".loaderWrapper").hide();
+        $("#failModal").modal();
     }
 });
 
