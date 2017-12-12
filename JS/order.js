@@ -91,7 +91,8 @@ $( document ).ready(function() {
             switch(radioMethod) {
                 case "enjoy":
                     orderMethod = "enjoy";
-                    orderObject.duration = Number($("#order-enjoy").val());
+                    orderObject.duration = 8;
+                    $("#order-enjoy").val("8");
                     $(".enjoyElement").show();
                     $(".normalElement").hide();
                     $(".form-item.street").hide();
@@ -102,7 +103,8 @@ $( document ).ready(function() {
                     break;
                 case "normal":
                     orderMethod = "normal";
-                    orderObject.duration = Number($("#order-time").val());
+                    orderObject.duration = 1;
+                    $("#order-time").val("1");
                     $(".enjoyElement").hide();
                     $(".normalElement").show();
                     $(".form-item.street").show();
@@ -119,15 +121,15 @@ $( document ).ready(function() {
     //change order-enjoy
     $("#order-enjoy").change(function() {
         var orderEnjoy = $("#order-enjoy"),
-            payMethod  = $("#order-customer-pay-method"),
-            payMethodPrice = 0;
+            deliveryMethod  = $("#delivery-method"),
+            deliveryMethodPrice = 0;
 
-        switch(payMethod.val()) {
+        switch(deliveryMethod.val()) {
             case "1":
-                payMethodPrice = 0;
+            deliveryMethodPrice = 0;
                 break;
             case "2":
-                payMethodPrice = SEND_VOUCHER;
+            deliveryMethodPrice = SEND_VOUCHER;
                 break;
         }
 
@@ -141,7 +143,7 @@ $( document ).ready(function() {
                 orderObject.duration = 9;
                 break;
         }
-        currentPrice += payMethodPrice;
+        currentPrice += deliveryMethodPrice;
         $("#total-price").text(currentPrice);
     });
     //change delivery method
@@ -173,15 +175,15 @@ $( document ).ready(function() {
     //change order time
     $("#order-time").change(function() {
         var orderTime = $("#order-time"),
-            payMethod  = $("#order-customer-pay-method"),
-            payMethodPrice = 0;
+            deliveryMethod  = $("#delivery-method"),
+            deliveryMethodPrice = 0;
 
-        switch(payMethod.val()) {
+        switch(deliveryMethod.val()) {
             case "1":
-                payMethodPrice = 0;
+                deliveryMethodPrice = 0;
                 break;
             case "2":
-                payMethodPrice = SEND_VOUCHER;
+                deliveryMethodPrice = SEND_VOUCHER;
                 break;
         }
 
@@ -215,7 +217,7 @@ $( document ).ready(function() {
                 orderObject.duration = 7;
                 break;
         }
-        currentPrice += payMethodPrice;
+        currentPrice += deliveryMethodPrice;
         $("#total-price").text(currentPrice);
     });
 
