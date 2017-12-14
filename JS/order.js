@@ -349,6 +349,7 @@ $( document ).ready(function() {
         $(".reservation_code").text(data);
         clearOrderDataAndInputs();
         $("#successModal").modal();
+        $(document).trigger("order_response", JSON.parse(data));
     }
 
     function errorPostOrder(error) {

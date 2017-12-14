@@ -1,13 +1,21 @@
 $( document ).ready(function() {
+    $( document ).on("order_response", function(event, data) {
+        debugger;
+        setCalender(data);
+    });
     var URL = "localhost";
 
     var isActive = false,
-        dayData;
+        dayData,
+        durationInFileds = 0,
+        delivery,
+        duration;
 
     var reservationObject = {
         code: "",
         date: "",
-        time: 0
+        time: "",
+        delivery: 0
     }
 
     //get data
@@ -116,34 +124,104 @@ $( document ).ready(function() {
         reservationObject.time = listElement.find(".selected").attr("id");
     });
 
+    $("#reservationButtonBrno").click(function () {
+        reservationObject.delivery = 1;
+        $("#delivery_reservation").text(getDelivery(1));
+    });
+    $("#reservationButtonOlomouc").click(function () {
+        reservationObject.delivery = 2;
+        $("#delivery_reservation").text(getDelivery(2));
+    });
+    $("#reservationButtonOstrava").click(function () {
+        reservationObject.delivery = 3;
+        $("#delivery_reservation").text(getDelivery(3));
+    });
+
     $("#reservationSubmit").click(function () {
-        var date = new Date($("#datepicker").datepicker("getDate")),
-            day = date.getDate(),
-            month = date.getMonth() + 1,
-            year = date.getFullYear(),
-            reservationCode = $("#reservationCode");
-
+        var date = $("#datepicker").datepicker("getFormattedDate"),
+            reservationCode = $("#reservationCode"),
+            delivery_reservation = $("#delivery_reservation"),
+            reservation_time = $("#reservation-time"),
+            datepicker = $("#datepicker"),
+            canReserved = true;
+        
         reservationCode.removeClass("error");
+        delivery_reservation.removeClass("error");
+        reservation_time.removeClass("error");
+        datepicker.removeClass("error");
 
+        debugger;
         if (!reservationCode.val()) {
             reservationCode.addClass("error");
+            canReserved = false;
         }
-        reservationObject.code = reservationCode;
-        if (day && month && year && reservationObject.time != 0) {
-            reservationObject.date = day + "/" + month + "/" + year;
-            console.log("reservation OK");    
+        reservationObject.code = reservationCode.val();
+
+        if (!reservationObject.delivery) {
+            delivery_reservation.addClass("error");
+            canReserved = false;
+        }
+        if (!date) {
+            datepicker.addClass("error");
+            canReserved = false;
+        }
+        reservationObject.date = date;
+
+        if (!reservationObject.time && (durationInFileds != 1 || durationInFileds != 2)) {
+            reservation_time.addClass("error");
+            canReserved = false;
+        }
+   
+        if (canReserved) { 
             console.log(reservationObject);   
-            post("api.php/reservation", reservationObject, function(data) {
+            /*post("api.php/reservation", reservationObject, function(data) {
                 console.log(data);
             }, function(error) {
                 console.log(error);
-            }) 
-        } else {
-            console.log("reservation FAIL");
-            console.log(reservationObject);    
+            }) */
         }
-        
     });
+
+    function setCalender(data) {
+        delivery = data.delivery;
+        duration = data.duration;
+        //fill data
+        $("#reservationCode").val(data.code);
+        $("#rideMethod").text(data.rideMethod);
+        $("#duration").text(getDuration(data.duration));
+        $("#customerName").text(data.customerName);
+        $("#delivery_reservation").text(getDelivery(data.delivery));
+    }
+
+    function getDuration(duration) {
+        durationInFileds = 0;
+        switch (duration) {
+            case 8: durationInFileds = 1;
+                return "30 minut";
+            case 9: durationInFileds = 2;
+                return "1 hodina";
+            case 1: return "12 hodin";
+            case 2: return "1 den";
+            case 3: return "2 dny";
+            case 4: return "3 dny";
+            case 5: return "4 dny";
+            case 6: return "5 dní";
+            case 7: return "výkend";
+        }
+    }
+
+    function getDelivery(delivery) {
+        switch (delivery) {
+            case 1: return "BRNO";
+            case 2: return "OLOMOUC";
+            case 3: return "OSTRAVA";
+            default: return "";
+        }
+    }
+
+    const BRNO = "BRNO";
+    const OLOMOUC = "OLOMOUC";
+    const OSTRAVA = "OSTRAVA";
 
     function getDayData() {
         dayData = ["8:00 - 8:30", "8:30 - 9:00", "9:00 - 9:30"];
@@ -176,19 +254,6 @@ $( document ).ready(function() {
         });
     }
 
-    function succesPostOrder(data) {
-        console.log(data);
-        $(".loaderWrapper").hide();
-        $(".reservation_code").text(data);
-        clearOrderDataAndInputs();
-        $("#successModal").modal();
-    }
-
-    function errorPostOrder(error) {
-        console.log(error);
-        $(".loaderWrapper").hide();
-        $("#failModal").modal();
-    }
 });
 
 

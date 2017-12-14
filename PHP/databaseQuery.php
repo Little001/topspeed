@@ -1,11 +1,14 @@
 <?php
+require_once('PHP/models/orderResponse.php');
 
 class DataBaseQuery {
     private $conn;
     public $code = "";
     public $lastId = "";
+    public $response;
 
     public function DataBaseQuery() {
+        $this->response = new OrderResponse;
         $this->createConnection();
     }
 
@@ -58,10 +61,15 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->duration .", ";
         $sql .= "" . $HireRide->delivery .", ";
         $sql .= "" . $HireRide->deliveryMethod .")";
+
+        $this->response->rideMethod = "Pronájmutí vozu";
+        $this->response->customerName = $HireRide->customerName;
+        $this->response->delivery = $HireRide->delivery;
+        $this->response->duration = $HireRide->duration;
    
         if ($this->conn->query($sql) === TRUE) {
             $this->lastID = $this->conn->insert_id;
-            return($this->generateCode($this->lastID));
+            return($this->generateCode($this->lastID, "hire"));
         } else {
             echo "New hire ride Error: " . $sql . "<br>" . $this->conn->error;
             return false;
@@ -83,10 +91,15 @@ class DataBaseQuery {
         $sql .= "" . $HireRide->duration .", ";
         $sql .= "" . $HireRide->delivery .", ";
         $sql .= "" . $HireRide->deliveryMethod .")";
+
+        $this->response->rideMethod = "Zážitková jízda";
+        $this->response->customerName = $HireRide->customerName;
+        $this->response->delivery = $HireRide->delivery;
+        $this->response->duration = $HireRide->duration;
    
         if ($this->conn->query($sql) === TRUE) {
             $this->lastID = $this->conn->insert_id;
-            return($this->generateCode($this->lastID));
+            return($this->generateCode($this->lastID, "enjoy"));
         } else {
             echo "New enjoy ride Error: " . $sql . "<br>" . $this->conn->error;
             return false;
@@ -97,12 +110,15 @@ class DataBaseQuery {
         return $this->code;
     }
 
-    private function generateCode($id) {
+    private function generateCode($id, $method) {
         $this->code = hash('crc32', 'id='.$id);
+        $this->response->code = $this->code;
         $sql = "INSERT INTO codes";
-        $sql .= " (code)";
+        $sql .= " (code, id_order, method)";
         $sql .= "VALUES ";
-        $sql .= "('" . $this->code ."')";
+        $sql .= "('" . $this->code ."', ";
+        $sql .= "" . $id .", ";
+        $sql .= "'" . $method ."')";
    
         if ($this->conn->query($sql) === TRUE) {
             return true;

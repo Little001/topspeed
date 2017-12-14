@@ -162,6 +162,7 @@ class HireRideController {
         $price = $durationPrice + $deliveryMethodPrice;
         $message = "Vážený zákazníku, \n \n";
         $message .= "Vaše objednávka číslo: " . $id . ", na-shopu www.topspeedbrno.cz byla přijata \n"; 
+        $message .= "Vaš kód pro rezervaci je: " . $code . "\n"; 
         $message .= "Rekapitulace Vaší objednávky: \n"; 
         $message .= "Pronájem vozu " . EnumsController::getDurationText($this->HireRideObject->duration) . " "; 
         $message .=  $durationPrice. " Kč \n";

@@ -32,7 +32,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo $object->databaseQuery->getCode();
+                echo json_encode($object->databaseQuery->response);
                 header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;
@@ -41,7 +41,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
             if (strlen($object->errors) > 0) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
-                echo $object->databaseQuery->getCode();
+                echo json_encode($object->databaseQuery->response);
                 header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;
