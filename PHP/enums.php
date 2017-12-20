@@ -47,13 +47,13 @@ abstract class Duration
 
 abstract class DurationPrice
 {
-    const TWELVE_HOURS_PRICE = 7999;
-    const ONE_DAY_PRICE = 9999;
-    const TWO_DAY_PRICE = 13999;
-    const THREE_DAY_PRICE = 17999;
-    const FOUR_DAY_PRICE = 21999;
-    const FIVE_DAY_PRICE = 25999;
-    const WEEKEND_PRICE = 14999;
+    const TWELVE_HOURS_PRICE = 4990;
+    const ONE_DAY_PRICE = 5990;
+    const TWO_DAY_PRICE = 10990;
+    const THREE_DAY_PRICE = 15990;
+    const FOUR_DAY_PRICE = 20990;
+    const FIVE_DAY_PRICE = 25990;
+    const WEEKEND_PRICE = 14990;
     const HALF_HOUR_PRICE = 3499;
     const HOUR_PRICE = 5999;
 }
