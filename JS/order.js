@@ -50,6 +50,11 @@ $( document ).ready(function() {
         $("#borow-button").closest('.carousel').carousel('next');
     });
 
+    $(".slevomat-button").click(function () {
+        var win = window.open("https://www.hyperslevy.cz/brno/181726-zazitkova-jizda-ve-ford-mustangu-gt-50-v-brne-olomouci-nebo-ostrave/", '_blank');
+        win.focus();
+    })
+
     $("#payOrder").click(function () {
         console.log(orderObject);
         $(".loaderWrapper").show();

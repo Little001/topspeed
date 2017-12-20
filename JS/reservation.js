@@ -150,7 +150,6 @@ $( document ).ready(function() {
         reservation_time.removeClass("error");
         datepicker.removeClass("error");
 
-        debugger;
         if (!reservationCode.val()) {
             reservationCode.addClass("error");
             canReserved = false;
