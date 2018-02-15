@@ -18,6 +18,7 @@
         
         <!-- CSS -->
         <link rel="stylesheet" href="CSS/header.css"/>
+        <link rel="stylesheet" href="CSS/loader.css"/>
         <link rel="stylesheet" href="CSS/content.css"/>
         <link rel="stylesheet" href="CSS/services_slider.css"/>
         <link rel="stylesheet" href="CSS/order_slider.css"/>
@@ -838,54 +839,18 @@
         <div class="loaderWrapper">
             <div class="loader"></div>
         </div>
-        <div class="modal fade" id="successModal" role="dialog">
+        <div class="modal fade" id="modal" role="dialog">
             <div class="modal-dialog">
-            <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Objednávka</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Title</h4>
                 </div>
                 <div class="modal-body">
-                <p>Objednávka byla odeslána ke zpracování.</p>
-                <p>Vás vygenerováný kód pro rezervace je: </p><span class="reservation_code"></span>
+                    <p>Message.</p>
                 </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="modal fade" id="failModal" role="dialog">
-            <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Objednávka</h4>
-                </div>
-                <div class="modal-body">
-                <p>Objednávka nebyla přijata, zkontrolujte zadné údaje.</p>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="modal fade" id="contactModal" role="dialog">
-            <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Kontakt</h4>
-                </div>
-                <div class="modal-body">
-                <p>Váš email jsme přijali, budeme vás kontaktovat co nejdříve.</p>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
                 </div>
             </div>
             </div>

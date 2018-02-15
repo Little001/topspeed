@@ -126,14 +126,14 @@ $( document ).ready(function() {
             post("api.php/contact", contactObject, function(data) {
                 console.log(data);
                 $(".loaderWrapper").hide();
-                $("#contactModal").modal();
+                showModal("Kontakt", "<p>Váš email jsme přijali, budeme vás kontaktovat co nejdříve.</p>");
                 name.val("");
                 email.val("");
                 question.val("");
             }, function (error) {
                 console.log(error);
                 $(".loaderWrapper").hide();
-                $("#contactModal").modal();
+                showModal("Kontakt", "<p>Váš email jsme přijali, budeme vás kontaktovat co nejdříve.</p>");
                 name.val("");
                 email.val("");
                 question.val("");
@@ -164,6 +164,15 @@ $( document ).ready(function() {
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
+    }
+
+    function showModal(title, message) {
+        var modal = $("#modal");
+
+        $(".modal-title", modal).text(title);
+        $(".modal-body", modal).html(message);        
+        
+        modal.modal();
     }
 });
 

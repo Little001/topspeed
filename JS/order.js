@@ -353,14 +353,15 @@ $( document ).ready(function() {
         $(".loaderWrapper").hide();
         $(".reservation_code").text(data);
         clearOrderDataAndInputs();
-        $("#successModal").modal();
+        showModal("Objednávka", 
+        "<p>Objednávka byla odeslána ke zpracování.</p><p>Vás vygenerováný kód pro rezervace je: </p><span class='reservation_code'></span>");
         $(document).trigger("order_response", JSON.parse(data));
     }
 
     function errorPostOrder(error) {
         console.log(error);
         $(".loaderWrapper").hide();
-        $("#failModal").modal();
+        showModal("Objednávka", "<p>Objednávka nebyla přijata, zkontrolujte zadné údaje.</p>");
     }
 
     function clearOrderDataAndInputs() {
