@@ -21,38 +21,24 @@ $( document ).ready(function() {
     })
 
     var tableRows = $(".datepicker-days .table-condensed tbody tr"),
-        position = 1,
         locationModel = {
-            month: "08/18",
+            month_year: "error",
             rows: [
-                {
+               /* {
                     position: 1,
                     place: 1
                 },
                 {
                     position: 2,
-                    place: 2
-                },
-                {
-                    position: 3,
                     place: 1
-                },
-                {
-                    position: 4,
-                    place: 2
-                },
-                {
-                    position: 5,
-                    place: 1
-                },
-                {
-                    position: 6,
-                    place: 3
-                }
+                }*/
             ]
         };
 
-    renderCombos();
+    //start datepicker
+    var dt = new Date();
+    locationModel.month_year = (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    getAndRenderPositions();
 
     $("#datepicker .datepicker-switch").on('click', function (e) {
         e.stopPropagation();
@@ -67,59 +53,104 @@ $( document ).ready(function() {
     });
 
     $("#datepicker").datepicker().on('changeMonth', function(e){ 
-        // get data from server
-        // set  locationModel
-        renderCombos();
+        var currMonth = String(new Date(e.date).getMonth() + 1),
+            currYear = String(e.date).split(" ")[3];
+
+        locationModel.month_year = currMonth + "/" + currYear;
+
+        getAndRenderPositions();
     });
 
     $("#save").click(function () {
         // post locationModel on server
         $(".loaderWrapper").show();
+        post("api.php/position", locationModel, function(data) {
+            $(".loaderWrapper").hide();
+        }, function (error) {
+            console.log(error);
+            $(".loaderWrapper").hide();
+        });
     });
 
+    function getAndRenderPositions() {
+        $(".loaderWrapper").show();
+        get("api.php/position", locationModel, function(data) {
+            locationModel.rows = JSON.parse(data);
+            renderCombos();
+            $(".loaderWrapper").hide();
+        }, function (error) {
+            console.log(error);
+            $(".loaderWrapper").hide();
+        });
+    }
+
     function renderCombos() {
-        tableRows.each(function() {
+        var position = 1;
+
+        $("select").remove();
+        $(".datepicker-days .table-condensed tbody tr").each(function() {
             $("body").append( createCombo(position) );
             position++;
         });
+        bindComboEvents();
     }
 
     function createCombo(pos) {
         var select = $("<select id='" + pos + "'>"),
-            place = 1,
+            place = "1",
             option,
             i;
 
         for (i = 0; i < locationModel.rows.length; i++) {
-            if (pos === locationModel.rows[i].position) {
+            if (pos === Number(locationModel.rows[i].position)) {
                 place = locationModel.rows[i].place;
             }
         }
 
         option = $("<option>").attr('value', 1).text("Ostrava");
-        option.attr("selected", place === 1 ? "selected" : false)
+        option.attr("selected", place === "1" ? "selected" : false)
         select.append(option);
         option = $("<option>").attr('value', 2).text("Brno");
-        option.attr("selected", place === 2 ? "selected" : false)
+        option.attr("selected", place === "2" ? "selected" : false)
         select.append(option);
         option = $("<option>").attr('value', 3).text("Olomouc");
-        option.attr("selected", place === 3 ? "selected" : false)
+        option.attr("selected", place === "3" ? "selected" : false)
         select.append(option);
 
         return select;
     }
 
-    $("select").change(function () {
-        var row = $(this).attr('id');
+    function bindComboEvents() {
+        $("select").change(function () {
+            var row = $(this).attr('id');
 
-        for (i = 0; i < locationModel.rows.length; i++) {
-            if (row == locationModel.rows[i].position) {
-                locationModel.rows[i].place = parseInt($(this).val());
+            for (i = 0; i < locationModel.rows.length; i++) {
+                if (row == locationModel.rows[i].position) {
+                    locationModel.rows[i].place = parseInt($(this).val());
+                }
             }
-        }
+        });
+    }
 
-        // console.log(locationModel);
-    });
+    function post(url, data, success, error) {
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: data,
+            success: success,
+            error: error
+        });
+    }
+
+    function get(url, data, success, error) {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: data,
+            success: success,
+            error: error
+        });
+    }
 });
 
 

@@ -1,5 +1,6 @@
 <?php
 require_once('PHP/models/orderResponse.php');
+require_once('PHP/models/position.php');
 
 class DataBaseQuery {
     private $conn;
@@ -102,6 +103,59 @@ class DataBaseQuery {
             return($this->generateCode($this->lastID, "enjoy"));
         } else {
             echo "New enjoy ride Error: " . $sql . "<br>" . $this->conn->error;
+            return false;
+        }
+    }
+
+    public function getPositions($month_year) {
+        $sql = "SELECT position, place FROM location WHERE month_year='" .$month_year ."'";
+        $result = mysqli_query($this->conn, $sql);
+        $positions = array();
+
+        while($row = mysqli_fetch_assoc($result)) {
+            $positions[] = $row;
+        } 
+        if (empty($positions)) {
+            for ($i = 0; $i < 6; $i++) {
+                $default = new Position;
+                $default->position = $i + 1;
+                $default->place = 1;
+                $positions[] = $default;
+            }
+        }
+
+        return $positions;
+    }
+
+    public function setPositions($locationModel) {
+        if (!$this->deletePosition($locationModel->month)) {
+            return false;
+        }
+
+        foreach ($locationModel->rows as &$row) {
+            $sql = "INSERT INTO location";
+            $sql .= " (month_year, place, position) ";
+            $sql .= "VALUES ";
+            $sql .= "('" . $locationModel->month ."', ";
+            $sql .= "" . $row["place"] .", ";
+            $sql .= "" . $row["position"] .")";
+    
+            if ($this->conn->query($sql) === TRUE) {
+            } else {
+                echo "INSERT location Error: " . $sql . "<br>" . $this->conn->error;
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private function deletePosition($month_year) {
+        $sql = "DELETE FROM location WHERE month_year='" . $month_year . "'";
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            echo "Delete position error: " . $sql . "<br>" . $this->conn->error;
             return false;
         }
     }
