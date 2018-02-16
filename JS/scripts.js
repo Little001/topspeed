@@ -174,6 +174,107 @@ $( document ).ready(function() {
         
         modal.modal();
     }
+
+    //for locations
+
+    var locationModel = {
+            month_year: "error",
+            rows: [
+               /* {
+                    position: 1,
+                    place: 1
+                },
+                {
+                    position: 2,
+                    place: 1
+                }*/
+            ]
+        };
+    var actualMonth;
+    //start datepicker
+    var dt = new Date();
+    actualMonth = (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    locationModel.month_year = actualMonth
+    getAndRenderPositions();
+
+    $("#datepicker").datepicker().on('changeMonth', function(e){ 
+        var currMonth = String(new Date(e.date).getMonth() + 1),
+            currYear = String(e.date).split(" ")[3]
+           
+        actualMonth = currMonth + "/" + currYear;    
+        locationModel.month_year = actualMonth;
+
+        getAndRenderPositions();
+    });
+
+    $("#datepicker").datepicker().on('changeDate', function(e){ 
+        var currMonth = String(new Date(e.date).getMonth() + 1),
+            currYear = String(e.date).split(" ")[3],
+            newMonth =  currMonth + "/" + currYear;
+
+        if (actualMonth !== newMonth) {
+            actualMonth = newMonth;
+            locationModel.month_year = actualMonth;
+            getAndRenderPositions();
+        }
+    });
+
+    function getAndRenderPositions() {
+        $(".loaderWrapper").show();
+        get("api.php/position", locationModel, function(data) {
+            locationModel.rows = JSON.parse(data);
+            renderLocations();
+            $(".loaderWrapper").hide();
+        }, function (error) {
+            console.log(error);
+            $(".loaderWrapper").hide();
+        });
+    }
+
+    function renderLocations() {
+        var position = 1;
+
+        $("#location").empty();
+        $(".datepicker-days .table-condensed tbody tr").each(function() {
+            $("#location").append( createLocation(position) );
+            position++;
+        });
+    }
+
+    function createLocation(pos) {
+        var locationElement = $("<div id='" + pos + "'>"),
+            placeElement,
+            place = "1",
+            i;
+
+        for (i = 0; i < locationModel.rows.length; i++) {
+            if (pos === Number(locationModel.rows[i].position)) {
+                place = locationModel.rows[i].place.toString();
+            }
+        }
+
+        switch (place) {
+            case "1": placeElement = $("<span>").text("Brno");
+                break;
+            case "2": placeElement = $("<span>").text("Olomouc");
+                break;
+            case "3": placeElement = $("<span>").text("Ostrava");
+                break;
+        }
+
+        locationElement.append(placeElement);
+        return locationElement;
+    }
+
+    function get(url, data, success, error) {
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: data,
+            success: success,
+            error: error
+        });
+    }
 });
 
 

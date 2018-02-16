@@ -5,6 +5,7 @@ require_once('PHP/controllers/contactController.php');
 require_once('PHP/controllers/reservationController.php');
 require_once('PHP/controllers/listReservationController.php');
 require_once('PHP/controllers/locationController.php');
+require_once('PHP/controllers/checkCodeController.php');
 $apiArgArray = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 $returnObject = (object) array();
 $route = request_path();
@@ -27,6 +28,15 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 header('HTTP/1.1 400 Bad request', true, 400);
             } else {
                 echo json_encode($object->list);
+                header('HTTP/1.1 200 Bad request', true, 200);
+            }
+            break;
+        case "checkCode":
+            $object = new CheckCodeController($_GET);
+            if (strlen($object->errors) > 0) {
+                header('HTTP/1.1 400 Bad request', true, 400);
+            } else {
+                echo json_encode($object->CheckCodeObject);
                 header('HTTP/1.1 200 Bad request', true, 200);
             }
             break;

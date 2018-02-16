@@ -58,6 +58,13 @@ abstract class DurationPrice
     const HOUR_PRICE = 5999;
 }
 
+abstract class Location
+{
+    const BRNO = 1;
+    const OLOMOUC = 2;
+    const OSTRAVA = 3;
+}
+
 abstract class DurationText
 {
     const TWELVE_HOURS_PRICE = "12 hodin";
@@ -86,6 +93,18 @@ abstract class PayMethodText
 {
     const BankAccount = "Bankovním převod";
     const CashOnDelivery = "Dobírka";
+}
+
+abstract class RideMethod
+{
+    const Hire = 1;
+    const Enjoy = 2;
+}
+
+abstract class RideMethodText
+{
+    const Hire = "Pronájem vozu";
+    const Enjoy = "Zážitková jízda";
 }
 
 ?>

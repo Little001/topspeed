@@ -665,7 +665,7 @@
                                 <input type="text" id="reservationCode"/>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bottom-padding">
-                                <div class="my-button">OVĚŘIT</div>
+                                <div class="my-button" id="checkButton">OVĚŘIT</div>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bold">
                                 <span>Ford Mustang GT</span>
@@ -685,29 +685,17 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
                                 <span>Datum:</span>
-                                <span>Nevybráno</span>
+                                <span id="date_reservation">Nevybráno</span>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bottom-padding">
                                 <span>Čas:</span>
-                                <span>Nevybráno</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line bold bottom-padding">
-                                <span>Vyberte si nástupní místo</span>
-                            </div>
-
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
-                                <div class="my-button" id="reservationButtonBrno">BRNO</div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
-                                <div class="my-button" id="reservationButtonOlomouc">OLOMOUC</div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 line">
-                                <div class="my-button" id="reservationButtonOstrava">OSTRAVA</div>
+                                <span id="time_reservation">Nevybráno</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 center-content">
                         <div id="datepicker" class="datepicker"></div>
+                        <div id="location"></div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 right-content">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -744,15 +732,6 @@
                                         <li id="24">19:30 - 20:00</li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
-                                <span>Olomouc OC city</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
-                                <span>15.3.2018</span>
-                            </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center bold">
-                                <span>11:30 - 12:00</span>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 reservation-button">
                                 <div class="my-button" id="reservationSubmit">REZERVOVAT</div>

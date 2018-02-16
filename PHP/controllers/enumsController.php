@@ -3,6 +3,16 @@ require_once('PHP/enums.php');
 
 class EnumsController {
 
+    //ride method
+    public static function getRideMethodText($rideMethod) {
+        switch ($rideMethod) {
+            case RideMethod::Hire:
+                return RideMethodText::Hire;
+            case RideMethod::Enjoy:
+                return RideMethodText::Enjoy;
+        }
+    }
+
     //pay method
     public static function getPayMethod($object, $payMethod) {
         switch ($payMethod) {

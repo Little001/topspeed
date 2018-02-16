@@ -17,9 +17,9 @@ class ReservationController {
         
         if ($this->checkData($POST)) { 
             if ($this->databaseQuery->insertReservation($this->ReservationObject)) {
-                if (!$this->sendEmail()) {
+                /*if (!$this->sendEmail()) {
                     $this->errors .= "send email ERROR";
-                }
+                }*/
             } else {
                 $this->errors .= "insert reservation";
             }
@@ -61,20 +61,24 @@ class ReservationController {
             $this->errors .= "code ";
             return false;    
         }
-        $this->code = $POST["code"];
+        if (!$this->databaseQuery->getRideByCode($POST["code"])) {
+            $this->errors .= "code not exists ";
+            return false;
+        }
+        $this->ReservationObject->code = $POST["code"];
 
         //date
         if ((!isset ($POST["date"])) || (strlen($POST["date"]) < 1)) {
             $this->errors .= "date ";
             return false;    
         }
-        $this->date = $POST["date"];
+        $this->ReservationObject->date = $POST["date"];
 
         if ((!isset ($POST["time"])) || (strlen($POST["time"]) < 1)) {
             $this->errors .= "time ";
             return false;    
         }
-        $this->time = $POST["time"];
+        $this->ReservationObject->time = $POST["time"];
 
         return true;
     }

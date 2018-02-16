@@ -1,6 +1,9 @@
 <?php
 require_once('PHP/models/orderResponse.php');
 require_once('PHP/models/position.php');
+require_once('PHP/models/checkCode.php');
+require_once('PHP/enums.php');
+require_once('PHP/controllers/enumsController.php');
 
 class DataBaseQuery {
     private $conn;
@@ -15,12 +18,11 @@ class DataBaseQuery {
 
     public function insertReservation($ReservationObject) {
         $sql = "INSERT INTO reservation";
-        $sql .= " (code, date, time, email) ";
+        $sql .= " (code, date, time) ";
         $sql .= "VALUES ";
         $sql .= "('" . $ReservationObject->code ."', ";
         $sql .= "'" . $ReservationObject->date ."', ";
-        $sql .= "'" . $ReservationObject->time ."', ";
-        $sql .= "'" . $ReservationObject->email ."')";
+        $sql .= "'" . $ReservationObject->time ."')";
    
         if ($this->conn->query($sql) === TRUE) {
             return true;
@@ -41,6 +43,25 @@ class DataBaseQuery {
             } */
         } else {
             //echo "0 results";
+        }
+    }
+
+    public function getCodeInformation($id_order, $method) {
+        $table = ($method == "enjoy") ? "enjoy_ride" : "hire_ride";
+        $sql = "SELECT * FROM " . $table . " WHERE id=" .$id_order;
+        $result = $this->conn->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $checkCodeObj = new CheckCode();
+            $checkCodeObj->customerName = $row["customerName"];
+            $checkCodeObj->delivery = $row["delivery"];
+            $checkCodeObj->duration = $row["duration"];
+            $checkCodeObj->rideMethod = EnumsController::getRideMethodText(intval($row["delivery"]));
+
+            return $checkCodeObj;
+        } else {
+            echo "0 results";
+            return false;
         }
     }
 
@@ -119,7 +140,7 @@ class DataBaseQuery {
             for ($i = 0; $i < 6; $i++) {
                 $default = new Position;
                 $default->position = $i + 1;
-                $default->place = 1;
+                $default->place = Location::OSTRAVA;
                 $positions[] = $default;
             }
         }
@@ -162,6 +183,17 @@ class DataBaseQuery {
 
     public function getCode() {
         return $this->code;
+    }
+
+    public function getRideByCode($code) {
+        $sql = "SELECT * FROM codes WHERE code='" .$code."' AND valid=1";
+        $result = $this->conn->query($sql);
+        if ($result->num_rows > 0) {
+            return $result->fetch_assoc();
+        } else {
+            return false;
+            //echo "0 results";
+        }
     }
 
     private function generateCode($id, $method) {

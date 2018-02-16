@@ -34,10 +34,11 @@ $( document ).ready(function() {
                 }*/
             ]
         };
-
+    var actualMonth;
     //start datepicker
     var dt = new Date();
-    locationModel.month_year = (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    actualMonth = (dt.getMonth() + 1) + "/" + dt.getFullYear();
+    locationModel.month_year = actualMonth;
     getAndRenderPositions();
 
     $("#datepicker .datepicker-switch").on('click', function (e) {
@@ -55,10 +56,23 @@ $( document ).ready(function() {
     $("#datepicker").datepicker().on('changeMonth', function(e){ 
         var currMonth = String(new Date(e.date).getMonth() + 1),
             currYear = String(e.date).split(" ")[3];
-
-        locationModel.month_year = currMonth + "/" + currYear;
+            
+        actualMonth = currMonth + "/" + currYear;
+        locationModel.month_year = actualMonth;
 
         getAndRenderPositions();
+    });
+
+    $("#datepicker").datepicker().on('changeDate', function(e){ 
+        var currMonth = String(new Date(e.date).getMonth() + 1),
+            currYear = String(e.date).split(" ")[3],
+            newMonth =  currMonth + "/" + currYear;
+
+        if (actualMonth !== newMonth) {
+            actualMonth = newMonth;
+            locationModel.month_year = newMonth;
+            getAndRenderPositions();
+        }
     });
 
     $("#save").click(function () {
@@ -103,17 +117,17 @@ $( document ).ready(function() {
 
         for (i = 0; i < locationModel.rows.length; i++) {
             if (pos === Number(locationModel.rows[i].position)) {
-                place = locationModel.rows[i].place;
+                place = locationModel.rows[i].place.toString();
             }
         }
 
-        option = $("<option>").attr('value', 1).text("Ostrava");
+        option = $("<option>").attr('value', 1).text("Brno");
         option.attr("selected", place === "1" ? "selected" : false)
         select.append(option);
-        option = $("<option>").attr('value', 2).text("Brno");
+        option = $("<option>").attr('value', 2).text("Olomouc");
         option.attr("selected", place === "2" ? "selected" : false)
         select.append(option);
-        option = $("<option>").attr('value', 3).text("Olomouc");
+        option = $("<option>").attr('value', 3).text("Ostrava");
         option.attr("selected", place === "3" ? "selected" : false)
         select.append(option);
 
