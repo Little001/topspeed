@@ -156,7 +156,7 @@ class DataBaseQuery {
             for ($i = 0; $i < 6; $i++) {
                 $default = new Position;
                 $default->position = $i + 1;
-                $default->place = Location::OSTRAVA;
+                $default->place = Location::BRNO;
                 $positions[] = $default;
             }
         }
