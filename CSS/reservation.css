@@ -13,7 +13,7 @@
     padding-bottom: 0;
 }
 .content-reservation .reservation-parts {
-    height: 1000px;
+    height: 550px;
 }
 .content-reservation .left-content {
     height: 100%;
@@ -69,4 +69,16 @@
 .content-reservation .time-table ul li.reservation{
     color: #c9c7c7!important;
     cursor: default!important;
+}
+
+#location {
+    position: absolute;
+    top: 189px;
+    font-weight: bold;
+    right: 0;
+    text-align: right;
+    font-size: 11px;
+}
+#location div {
+    margin-bottom: 45px;
 }

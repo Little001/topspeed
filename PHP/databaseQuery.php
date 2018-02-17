@@ -25,9 +25,25 @@ class DataBaseQuery {
         $sql .= "'" . $ReservationObject->time ."')";
    
         if ($this->conn->query($sql) === TRUE) {
-            return true;
+            if($this->invalidateCode($ReservationObject->code)) {
+                return true;
+            }
+            return false;
         } else {
             echo "New reservation Error: " . $sql . "<br>" . $this->conn->error;
+            return false;
+        }
+    }
+
+    private function invalidateCode($code) {
+        $sql = "UPDATE codes ";
+        $sql .= "SET valid = 0 ";
+        $sql .= "WHERE code='" . $code . "'";
+
+        if ($this->conn->query($sql) === TRUE) {
+            return true;
+        } else {
+            echo "Invalidate Code Error: " . $sql . "<br>" . $this->conn->error;
             return false;
         }
     }

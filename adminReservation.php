@@ -23,15 +23,22 @@ session_start();
         <!-- CSS -->
         <link rel="stylesheet" href="CSS/datepicker.css"/>
         <link rel="stylesheet" href="CSS/loader.css"/>
+        <link rel="stylesheet" href="CSS/admin.css"/>
         <!-- JS -->
         <script src="JS/admin/scripts.js"></script>
     </head>
     <body>
+        <div id="buttons">
+            <button id="save" class="button">SAVE</button>
+            <form id="logout" method="POST" action="admin.php" enctype="multipart/form-data">
+                <input class="button" type="submit" name="logout_user" id="logout_user" value="Odhlásit" />
+            </form>
+        </div>
         <div id="datepicker" class="datepicker"></div>
-        <button id="save">SAVE</button>
-        <form id="logout" method="POST" action="admin.php" enctype="multipart/form-data">
-            <input type="submit" name="logout_user" id="logout_user" value="Odhlásit" />
-        </form>
+        <div id="locations">
+            <ul>
+            </ul>
+        </div>
         <div class="loaderWrapper">
             <div class="loader"></div>
         </div>

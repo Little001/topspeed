@@ -101,16 +101,17 @@ $( document ).ready(function() {
     function renderCombos() {
         var position = 1;
 
-        $("select").remove();
+        $("#locations ul").empty();
         $(".datepicker-days .table-condensed tbody tr").each(function() {
-            $("body").append( createCombo(position) );
+            $("#locations ul").append( createCombo(position) );
             position++;
         });
         bindComboEvents();
     }
 
     function createCombo(pos) {
-        var select = $("<select id='" + pos + "'>"),
+        var li = $("<li>"),
+            select = $("<select id='" + pos + "'>").appendTo(li),
             place = "1",
             option,
             i;
@@ -131,7 +132,7 @@ $( document ).ready(function() {
         option.attr("selected", place === "3" ? "selected" : false)
         select.append(option);
 
-        return select;
+        return li;
     }
 
     function bindComboEvents() {

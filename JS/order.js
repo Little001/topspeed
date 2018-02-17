@@ -28,6 +28,7 @@ $( document ).ready(function() {
     };
 
     var orderMethod = "normal";
+    var reservationNow = false;
 
     function getPayMethod(payMethod) {
         switch(payMethod) {
@@ -55,8 +56,15 @@ $( document ).ready(function() {
         win.focus();
     })
 
+    $('#order-reservation-now').change(function() {
+        if($(this).is(":checked")) {
+            reservationNow = true;
+            return;
+        }
+        reservationNow = false;
+    });
+
     $("#payOrder").click(function () {
-        console.log(orderObject);
         $(".loaderWrapper").show();
         if (orderMethod == "normal") {
             post("api.php/hire", orderObject, succesPostOrder, errorPostOrder);
@@ -68,9 +76,6 @@ $( document ).ready(function() {
     //on click to recapitulaiton
     $("#order-continue").click(function () {
         if (!secondStepIsValid()) {
-            if ($("#order-reservation-now").is(':checked')) {
-                //todo   
-            }
             return;
         }
         $("#order-continue").closest('.carousel').carousel('next');
@@ -349,19 +354,25 @@ $( document ).ready(function() {
     }
 
     function succesPostOrder(data) {
-        console.log(data);
+        var response = JSON.parse(data);
         $(".loaderWrapper").hide();
-        $(".reservation_code").text(data);
         clearOrderDataAndInputs();
-        showModal("Objednávka", 
-        "<p>Objednávka byla odeslána ke zpracování.</p><p>Vás vygenerováný kód pro rezervace je: </p><span class='reservation_code'></span>");
-        $(document).trigger("order_response", JSON.parse(data));
+        if (reservationNow) {
+            showModal("Objednávka", 
+            "<p>Objednávka byla odeslána ke zpracování.</p><p>Vás vygenerováný kód pro rezervace je: </p><span class='reservation_code'></span>");
+            $(".reservation_code").text(response.code);
+            $(document).trigger("order_response", response);
+        } else {
+            showModal("Objednávka", 
+            "<p>Objednávka byla odeslána ke zpracování.</p>");
+        }
+        
     }
 
     function errorPostOrder(error) {
         console.log(error);
         $(".loaderWrapper").hide();
-        showModal("Objednávka", "<p>Objednávka nebyla přijata, zkontrolujte zadné údaje.</p>");
+        showModal("Objednávka", "<p>Objednávka nebyla přijata, zkontrolujte zadané údaje.</p>");
     }
 
     function clearOrderDataAndInputs() {
@@ -406,6 +417,15 @@ $( document ).ready(function() {
     function validateEmail(email) {
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(email);
+    }
+
+    function showModal(title, message) {
+        var modal = $("#modal");
+
+        $(".modal-title", modal).text(title);
+        $(".modal-body", modal).html(message);        
+        
+        modal.modal();
     }
 });
 

@@ -17,9 +17,9 @@ class ReservationController {
         
         if ($this->checkData($POST)) { 
             if ($this->databaseQuery->insertReservation($this->ReservationObject)) {
-                /*if (!$this->sendEmail()) {
+                if (!$this->sendEmail()) {
                     $this->errors .= "send email ERROR";
-                }*/
+                }
             } else {
                 $this->errors .= "insert reservation";
             }

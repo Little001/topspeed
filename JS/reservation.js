@@ -146,31 +146,23 @@ $( document ).ready(function() {
     $("#reservationSubmit").click(function () {
         var date = $("#datepicker").datepicker("getFormattedDate"),
             reservationCode = $("#reservationCode"),
-            delivery_reservation = $("#delivery_reservation"),
             reservation_time = $("#reservation-time"),
             datepicker = $("#datepicker"),
-            customerName = $("#customerName"),
+            leftContent = $(".left-content-reservation"),
             canReserved = true;
-        
-        reservationCode.removeClass("error");
-        customerName.removeClass("error");
-        delivery_reservation.removeClass("error");
+
+        leftContent.removeClass("error");
         reservation_time.removeClass("error");
         datepicker.removeClass("error");
 
         if (!reservationCode.val()) {
-            reservationCode.addClass("error");
-            canReserved = false;
-        }
-
-        if (!reservationCode.val()) {
-            reservationCode.addClass("error");
+            leftContent.addClass("error");
             canReserved = false;
         }
         reservationObject.code = reservationCode.val();
 
         if (!reservationObject.delivery) {
-            delivery_reservation.addClass("error");
+            leftContent.addClass("error");
             canReserved = false;
         }
         if (!date) {
@@ -188,13 +180,16 @@ $( document ).ready(function() {
             console.log(reservationObject);   
             post("api.php/reservation", reservationObject, function(data) {
                 console.log(data);
+                showModal("Rezervace", "<p>Vaše jízda je zarezervována.</p>");
             }, function(error) {
                 console.log(error);
+                showModal("Rezervace", "<p>Chyba při rezervaci.</p><p>Zkontrolujte kód a vyplňěné údaje.<p/><p>Na vygenerovaný kód se lze rezervovat pouze jednou.<p/>");
             })
         }
     });
 
     function setCalender(data) {
+        debugger;
         delivery = data.delivery;
         duration = data.duration;
         //fill data
