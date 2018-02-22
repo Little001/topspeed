@@ -106,7 +106,7 @@ $( document ).ready(function() {
                 showModal("Rezervace", "<p>Vaše jízda je zarezervována.</p>");
             }, function(error) {
                 console.log(error);
-                showModal("Rezervace", "<p>Chyba při rezervaci.</p><p>Zkontrolujte kód a vyplňěné údaje.<p/><p>Na vygenerovaný kód se lze rezervovat pouze jednou.<p/>");
+                showModal("Rezervace", "<p>Chyba při rezervaci.</p><p>Zkontrolujte kód a vyplňěné údaje.<p/><p>Na vygenerovaný kód se lze rezervovat pouze jednou.<p/><p>Zkontrolujte místo kde jízda započne.<p/>");
             })
         }
     });
