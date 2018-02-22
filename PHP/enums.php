@@ -60,9 +60,11 @@ abstract class DurationPrice
 
 abstract class Location
 {
+    const NOT_SPECIFY = 0;
     const BRNO = 1;
     const OLOMOUC = 2;
     const OSTRAVA = 3;
+    const VACATION = 4;
 }
 
 abstract class DurationText

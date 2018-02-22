@@ -122,6 +122,9 @@ $( document ).ready(function() {
             }
         }
 
+        option = $("<option>").attr('value', 0).text("Nevybráno");
+        option.attr("selected", place === "0" ? "selected" : false)
+        select.append(option);
         option = $("<option>").attr('value', 1).text("Brno");
         option.attr("selected", place === "1" ? "selected" : false)
         select.append(option);
@@ -130,6 +133,9 @@ $( document ).ready(function() {
         select.append(option);
         option = $("<option>").attr('value', 3).text("Ostrava");
         option.attr("selected", place === "3" ? "selected" : false)
+        select.append(option);
+        option = $("<option>").attr('value', 4).text("Nejezdíme");
+        option.attr("selected", place === "4" ? "selected" : false)
         select.append(option);
 
         return li;

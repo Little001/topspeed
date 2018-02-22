@@ -1,3 +1,4 @@
+var lastSelectedLocation = 0;
 $( document ).ready(function() {
     (function($){
         $.fn.datepicker.dates['cs'] = {
@@ -195,6 +196,7 @@ $( document ).ready(function() {
     var dt = new Date();
     actualMonth = (dt.getMonth() + 1) + "/" + dt.getFullYear();
     locationModel.month_year = actualMonth
+    var placeArray = [];
     getAndRenderPositions();
 
     $("#datepicker").datepicker().on('changeMonth', function(e){ 
@@ -203,7 +205,6 @@ $( document ).ready(function() {
            
         actualMonth = currMonth + "/" + currYear;    
         locationModel.month_year = actualMonth;
-
         getAndRenderPositions();
     });
 
@@ -216,8 +217,19 @@ $( document ).ready(function() {
             actualMonth = newMonth;
             locationModel.month_year = actualMonth;
             getAndRenderPositions();
+        } else {
+            setClickOnRowCalendar();
         }
     });
+
+    function setClickOnRowCalendar() {
+        $(".datepicker-days .table-condensed tbody tr").each(function(index) {
+            $(this).click(function() {
+                lastSelectedLocation = Number(placeArray[index]);
+                console.log(placeArray[index]);   
+            });
+        });
+    }
 
     function getAndRenderPositions() {
         $(".loaderWrapper").show();
@@ -235,10 +247,12 @@ $( document ).ready(function() {
         var position = 1;
 
         $("#location").empty();
+        placeArray = [];
         $(".datepicker-days .table-condensed tbody tr").each(function() {
             $("#location").append( createLocation(position) );
             position++;
         });
+        setClickOnRowCalendar();
     }
 
     function createLocation(pos) {
@@ -253,12 +267,18 @@ $( document ).ready(function() {
             }
         }
 
+        placeArray.push(place);
+
         switch (place) {
+            case "0": placeElement = $("<span>").text("Nevybráno");
+                break;
             case "1": placeElement = $("<span>").text("Brno");
                 break;
             case "2": placeElement = $("<span>").text("Olomouc");
                 break;
             case "3": placeElement = $("<span>").text("Ostrava");
+                break;
+            case "4": placeElement = $("<span>").text("Dovolená");
                 break;
         }
 

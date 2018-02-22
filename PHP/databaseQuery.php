@@ -16,6 +16,20 @@ class DataBaseQuery {
         $this->createConnection();
     }
 
+    public function checkReservationLocation($code, $location) {
+        $ride = $this->getRideByCode($code);
+        if ($ride == false) {
+            echo "delivery is not equal";
+            return false;
+        }
+        $checkCodeObj = $this->getCodeInformation($ride["id_order"], $ride["method"]);
+        if ($checkCodeObj->delivery != $location) {
+            echo "delivery is not equal";
+            return false;
+        }
+        return true;
+    }
+
     public function insertReservation($ReservationObject) {
         $sql = "INSERT INTO reservation";
         $sql .= " (code, date, time) ";
@@ -28,6 +42,7 @@ class DataBaseQuery {
             if($this->invalidateCode($ReservationObject->code)) {
                 return true;
             }
+            echo "invalidate Code Error: " . $sql . "<br>" . $this->conn->error;
             return false;
         } else {
             echo "New reservation Error: " . $sql . "<br>" . $this->conn->error;
@@ -156,7 +171,7 @@ class DataBaseQuery {
             for ($i = 0; $i < 6; $i++) {
                 $default = new Position;
                 $default->position = $i + 1;
-                $default->place = Location::BRNO;
+                $default->place = Location::NOT_SPECIFY;
                 $positions[] = $default;
             }
         }

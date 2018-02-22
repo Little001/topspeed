@@ -16,15 +16,20 @@ class ReservationController {
         $this->databaseQuery = new DataBaseQuery();
         
         if ($this->checkData($POST)) { 
-            if ($this->databaseQuery->insertReservation($this->ReservationObject)) {
-                if (!$this->sendEmail()) {
-                    $this->errors .= "send email ERROR";
+
+            if ($this->databaseQuery->checkReservationLocation($this->ReservationObject->code, $this->ReservationObject->location)) {
+                if ($this->databaseQuery->insertReservation($this->ReservationObject)) {
+                    if (!$this->sendEmail()) {
+                        $this->errors .= "send email ERROR";
+                    }
+                } else {
+                    $this->errors .= "insert reservation";
                 }
             } else {
-                $this->errors .= "insert reservation";
+                $this->errors .= "reservation check reservation location";
             }
         } else {
-            echo "reservation data" . $this->errors;
+            $this->errors .= "reservation data";
         }
     }
 
@@ -79,6 +84,12 @@ class ReservationController {
             return false;    
         }
         $this->ReservationObject->time = $POST["time"];
+
+        if (!isset ($POST["location"])) {
+            $this->errors .= "location ";
+            return false;    
+        }
+        $this->ReservationObject->location = $POST["location"];
 
         return true;
     }

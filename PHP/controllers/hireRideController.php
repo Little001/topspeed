@@ -21,6 +21,7 @@ class HireRideController {
                 $this->errors .= "insert hire ride";
             }
         } else {
+            $this->errors .= "fail data";
             echo "fail data" . $this->errors;
         }
     }
