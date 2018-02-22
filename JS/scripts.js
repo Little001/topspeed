@@ -270,7 +270,7 @@ $( document ).ready(function() {
         placeArray.push(place);
 
         switch (place) {
-            case "0": placeElement = $("<span>").text("Nevybráno");
+            case "0": placeElement = $("<span>").text("");
                 break;
             case "1": placeElement = $("<span>").text("Brno");
                 break;

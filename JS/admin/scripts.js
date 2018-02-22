@@ -134,7 +134,7 @@ $( document ).ready(function() {
         option = $("<option>").attr('value', 3).text("Ostrava");
         option.attr("selected", place === "3" ? "selected" : false)
         select.append(option);
-        option = $("<option>").attr('value', 4).text("Nejezdíme");
+        option = $("<option>").attr('value', 4).text("-");
         option.attr("selected", place === "4" ? "selected" : false)
         select.append(option);
 
