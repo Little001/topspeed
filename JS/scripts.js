@@ -270,15 +270,15 @@ $( document ).ready(function() {
         placeArray.push(place);
 
         switch (place) {
-            case "0": placeElement = $("<span>").text("");
+            case "0": placeElement = $("<span>").html("&nbsp");
                 break;
-            case "1": placeElement = $("<span>").text("Brno");
+            case "1": placeElement = $("<span>").html("Brno");
                 break;
-            case "2": placeElement = $("<span>").text("Olomouc");
+            case "2": placeElement = $("<span>").html("Olomouc");
                 break;
-            case "3": placeElement = $("<span>").text("Ostrava");
+            case "3": placeElement = $("<span>").html("Ostrava");
                 break;
-            case "4": placeElement = $("<span>").text("Dovolená");
+            case "4": placeElement = $("<span>").html("Nejezdíme");
                 break;
         }
 
